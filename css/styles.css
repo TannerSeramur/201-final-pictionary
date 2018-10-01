@@ -1,0 +1,62 @@
+body {
+    background-image: url("br.jpg") ;
+    background-size: 100%;
+}
+
+
+div#container{
+    background-color:orange;
+    padding:100px;
+    text-align:center;
+    width:800px;
+    margin:0 auto;
+    }
+  div#content {
+    background-color:brown;
+    padding:50px;
+  }
+  
+  .popup-container{
+      position: absolute;
+      top: 0;
+      bottom: 10;
+      right: 00;
+      left: 0;
+      background-color: rgba(0,0,0,.75);
+    
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      visibility: hidden;
+    
+    }
+  
+  .column {
+     float: right;
+     width: 50%;
+     width: 50%;
+   }
+    
+    .popup{
+      background-color: #f2f2f2;
+      max-width: 600px;
+      padding: 30px;
+      min-width: 450px;
+      z-index: 100;
+    }
+    
+    .popup input[type = submit]{
+      margin-top: 25px;
+    }
+    
+    .isvisable{
+      visibility:visible !important;
+      
+    }
+    
+    .modal-body img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    }
+    

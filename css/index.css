@@ -1,0 +1,19 @@
+* {
+    background-color: #f1f1f1;
+  }
+  header{
+      text-align: center
+  }
+
+  nav {
+    text-align: center;
+    margin: 10px;
+    padding: 25px;
+    font-family: arial;
+    color: blue;
+  }
+
+  nav li {
+    display: inline;
+    list-style: none;
+  }
