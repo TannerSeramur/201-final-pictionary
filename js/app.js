@@ -10,7 +10,9 @@ console.log('getting here');
         document.getElementById(type).classList.add("isvisable");   
     }
     var closePop = function(type){
+        if(event.currentTarget === event.target){
         document.getElementById(type).classList.remove("isvisable");
+        }
     }
 
 
