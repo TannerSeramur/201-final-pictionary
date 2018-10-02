@@ -61,6 +61,22 @@
     }
      */
 
+     nav{
+       background-color: green;
+       width: 100vw;
+       height: 30px;
+     }
+
+     #container{
+       background-color: red;
+       display: flex;
+       flex-direction: column;
+       align-content: center;
+       align-items: center;
+     }
+
+    
+
 
 
      /* modal styles here */

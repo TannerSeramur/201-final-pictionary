@@ -1,20 +1,3 @@
-// popup modal
-console.log('getting here');
-    var login = document.getElementById("popup")
-        
-    var myFunc = function(type){
-        console.log('open');
-        login.classList.add("isvisable");
-    }
-    
-    var closePop = function(){
-        if(event.currentTarget === event.target){
-            
-            login.classList.remove("isvisable")
-        }
-    
-    }
-
 
 
 // game constructor function 
