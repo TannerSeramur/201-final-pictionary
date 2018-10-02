@@ -1,50 +1,44 @@
-<html lang="en">
-<head>
-    <title>GAME</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/game.css">
-</head>
-<body>
-    <header></header>
 
+<!DOCTYPE html>
+<html>
+  <head>
+      <link rel="stylesheet" href="css/reset.css">
+      <link rel="stylesheet" href="css/game.css">
+      <script type="text/javascript" src="http://ramkulkarni.com/temp/2012-10-03/js/lib/jquery-1.7.2.js"></script>
+      <script type="text/javascript" src="js/canvas.js"></script>
+      <script type="text/javascript">startScript();</script>
+      <title>Pictionary</title>
+  </head>
+  <body>
+    <header>
+    </header>
     <main>
-        <div class = "modal-container">
+      <div class = "modal-container">
             <div class="pop"></div>
                         
             <div class="popup-container" id= "pop4" onclick="hideScreen('pop4')">
                 <div class="popup"><p>hi</p>
                     <!-- text goes here--></div>
             </div>
+      </div>
+      <div class="content-container">
+      <h1>Pictionary</h1>
+      <p><span id="more-464"></span><br />
+        <canvas id="canvas1" style="border: medium; border-color: #00F; border-style: solid;" width="500" height="400">   </canvas><br />
+        <input id="recordBtn" type="button" value="Record" /> 
+        <input id="playBtn" type="button" value="Play" /> 
+        <input id="pauseBtn" type="button" value="Pause" /> 
+        <input id="clearBtn" type="button" value="Clear" />
+      </p>
+        <div id="myProgress">
+          <div id="myBar">
+          </div>
         </div>
-            
-        
-        
-        
-            <div class="content-container">
-                <h1>Game Page</h1>
-                <p><script type="text/javascript" src="http://ramkulkarni.com/temp/2012-10-03/js/lib/jquery-1.7.2.js"></script>
-                <script src="js/canvas.js"></script>
-                <script type="text/javascript">
-                    startScript();
-                    </script></p>
-                    
+      </div>
+       <script src = "js/app.js"></script>
 
-                <p><span id="more-464"></span><br />
-                    <canvas id="canvas1" style="border: medium; border-color: #fcce77; border-style: solid;" width="500" height="400">   </canvas><br />
-                    <input id="recordBtn" type="button" value="Record" /> 
-                    <input id="playBtn" type="button" value="Play" /> 
-                    <input id="pauseBtn" type="button" value="Pause" /> 
-                    <input id="clearBtn" type="button" value="Clear" />
-                </p>
-
-                <div id="myProgress">
-                    <div id="myBar"></div>
-                </div>
-            </div>
-            
-    <script src = "js/app.js"></script>        
     </main>
-    <footer></footer>
- 
-</body>
+    <footer>
+    </footer>
+  </body>
 </html>
