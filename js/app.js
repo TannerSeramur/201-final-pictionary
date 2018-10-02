@@ -1,19 +1,28 @@
 
 // popup modal
+console.log('getting here');
+    var pop1 = document.getElementById("popup-1");
+    var pop2 = document.getElementById("popup-2");
+    var pop3 = document.getElementById("popup-2");
+        
+    var myFunc = function(type){
+        console.log(type);
+        // type.classList.add("isvisable");
+        // console.log(type);
+        document.getElementById(type).classList.add("isvisable");
+        // console.log(classList);
+        
+    }
+    
+    var closePop = function(type){
+        // if(event.currentTarget === event.target){
+        document.getElementById(type).classList.remove("isvisable");
+            // pop1.classList.remove("isvisable");
+        // }
+    
+    }
 
 
-var myFunc = function(type){
-  console.log('open');
-  login.classList.add('isvisable');
-};
-
-var closePop = function(){
-  if(event.currentTarget === event.target){
-
-    login.classList.remove('isvisable');
-  }
-
-};
 // Global variables
 var maxRounds = 3;
 Game.teams = [];
