@@ -37,13 +37,17 @@ function Team(teamName) {
 }
 
 function addTeam(event) {
-  new Team(event.target.value);
+  var teamName = document.getElementById('add-team-input').value;
+  new Team(teamName);
   // update the teams display area
   renderTeams();
 }
 
 // remove team
-function removeTeam(teamName) {
+function removeTeam(event) {
+  var liElement = event.currentTarget;
+  var teamName = liElement.previousSibling.textContent;
+  console.log('Tryna remove', teamName);
   for (let i = 0; i < Game.teams.length; i++) {
     if (teamName === Game.teams[i].teamName) {
       Game.teams.splice(i, 1);
@@ -87,10 +91,13 @@ function renderTeams() {
     var newLi = document.createElement('li');
     var newP = document.createElement('p');
     newP.textContent = Game.teams[i].teamName;
+    // newLi.textContent = Game.teams[i].teamName;
     newLi.appendChild(newP);
-    var newI = document.createElement('i');
-    newI.setAttribute('class', "fas fa-times-circle");
-    newLi.appendChild(newI);
+    var newButton = document.createElement('button');
+    newButton.setAttribute('class', 'fas fa-times-circle');
+    // Need this button to be able to do something
+    newButton.addEventListener('click', removeTeam);
+    newLi.appendChild(newButton);
     teamsList.appendChild(newLi);
   }
 }
@@ -152,11 +159,16 @@ function showEndOfGameResults() {
   // TODO: display end of game results
 }
 
-var startButton = document.getElementById('pop1');
-var instructionsButton = document.getElementById('pop-2');
-var scoresButton = document.getElementById('pop-3');
-startButton.addEventListener('click', playGame);
-instructionsButton.addEventListener('click', showInstructions);
-scoresButton.addEventListener('click', showHighScores);
-var teamForm = document.getElementById('add-team');
-teamForm.addEventListener('submit', addTeam);
+// var startButton = document.getElementById('pop1');
+// var instructionsButton = document.getElementById('pop2');
+// var scoresButton = document.getElementById('pop3');
+// startButton.addEventListener('click', playGame);
+// instructionsButton.addEventListener('click', showInstructions);
+// scoresButton.addEventListener('click', showHighScores);
+var addTeamButton = document.getElementById('add-team-button');
+addTeamButton.addEventListener('click', addTeam);
+var removeTeamButtons = document.getElementsByClassName('fas fa-times-circle');
+console.log('arrayOfButtons', removeTeamButtons);
+for (var b of removeTeamButtons) {
+  b.addEventListener('click', removeTeam);
+}
