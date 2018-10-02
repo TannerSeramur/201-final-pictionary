@@ -7,19 +7,10 @@ console.log('getting here');
         
     var myFunc = function(type){
         console.log(type);
-        // type.classList.add("isvisable");
-        // console.log(type);
-        document.getElementById(type).classList.add("isvisable");
-        // console.log(classList);
-        
+        document.getElementById(type).classList.add("isvisable");   
     }
-    
     var closePop = function(type){
-        // if(event.currentTarget === event.target){
         document.getElementById(type).classList.remove("isvisable");
-            // pop1.classList.remove("isvisable");
-        // }
-    
     }
 
 
