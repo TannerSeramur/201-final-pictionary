@@ -1,4 +1,3 @@
-
 // popup modal
 var pop1 = document.getElementById('pop1');
 var pop2 = document.getElementById('pop2');
@@ -21,6 +20,12 @@ function hideScreen(type){
   }
 }
 
+
+function hideScreen(type){
+  if(event.currentTarget === event.target){
+    document.getElementById(type).classList.add('invisable');
+  }
+}
 
 
 // Global variables
@@ -94,11 +99,9 @@ function renderTeams() {
     newP.textContent = Game.teams[i].teamName;
     // newLi.textContent = Game.teams[i].teamName;
     newLi.appendChild(newP);
-    var newButton = document.createElement('button');
-    newButton.setAttribute('class', 'fas fa-times-circle');
-    // Need this button to be able to do something
-    newButton.addEventListener('click', removeTeam);
-    newLi.appendChild(newButton);
+    var newI = document.createElement('i');
+    newI.setAttribute('class', 'fas fa-times-circle');
+    newLi.appendChild(newI);
     teamsList.appendChild(newLi);
   }
 }
