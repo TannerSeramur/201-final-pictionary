@@ -1,17 +1,17 @@
 
 // popup modal
 console.log('getting here');
-    var pop1 = document.getElementById("popup-1");
-    var pop2 = document.getElementById("popup-2");
-    var pop3 = document.getElementById("popup-2");
-        
-    var myFunc = function(type){
-        console.log(type);
-        document.getElementById(type).classList.add("isvisable");   
-    }
-    var closePop = function(type){
-        document.getElementById(type).classList.remove("isvisable");
-    }
+var pop1 = document.getElementById('popup-1');
+var pop2 = document.getElementById('popup-2');
+var pop3 = document.getElementById('popup-2');
+
+var myFunc = function(type){
+  console.log(type);
+  document.getElementById(type).classList.add('isvisable');
+};
+var closePop = function(type){
+  document.getElementById(type).classList.remove('isvisable');
+};
 
 
 // Global variables
@@ -33,6 +33,11 @@ function Team(teamName) {
   Game.teams.push(this);
 }
 
+function addTeam(event) {
+  new Team(event.target.value);
+  // update the teams display area
+  renderTeams();
+}
 
 // remove team
 function removeTeam(teamName) {
@@ -41,11 +46,19 @@ function removeTeam(teamName) {
       Game.teams.splice(i, 1);
     }
   }
+  // update the teams display area
+  renderTeams();
 }
 
 // when instructions button on index.html gets clicked
 function showInstructions() {
+  console.log('Look! Instructions!');
   // TODO: implement show instructions modal
+}
+
+function showHighScores() {
+  console.log('Look! High scores!');
+  // TODO: show high scores modal
 }
 
 // called in playGame
@@ -63,11 +76,25 @@ function showTeamSelect() {
 
 // called in showTeamSelect
 function renderTeams() {
+
   // TODO: make Games.teams show up in the team select modal
+  var teamsList = document.getElementById('teams');
+  teamsList.innerHTML = '';
+  for (let i = 0; i < Game.teams.length; i++) {
+    var newLi = document.createElement('li');
+    var newP = document.createElement('p');
+    newP.textContent = Game.teams[i].teamName;
+    newLi.appendChild(newP);
+    var newI = document.createElement('i');
+    newI.setAttribute('class', "fas fa-times-circle");
+    newLi.appendChild(newI);
+    teamsList.appendChild(newLi);
+  }
 }
 
 // When the play button on index.html gets clicked
 function playGame() {
+  console.log('Let\'s play!');
   // Do all the choose team things before we can start
   chooseTeams();
   // loop over the number of rounds in our game
@@ -79,7 +106,7 @@ function playGame() {
       // Do start turn things here
       doTurn(Game.teams[currentTeam]);
     }
-  } 
+  }
   // Game is done. Show results.
   showEndOfGameResults();
 }
@@ -121,4 +148,12 @@ function showTurnResults() {
 function showEndOfGameResults() {
   // TODO: display end of game results
 }
-// role switch here
+
+var startButton = document.getElementById('pop1');
+var instructionsButton = document.getElementById('pop-2');
+var scoresButton = document.getElementById('pop-3');
+startButton.addEventListener('click', playGame);
+instructionsButton.addEventListener('click', showInstructions);
+scoresButton.addEventListener('click', showHighScores);
+var teamForm = document.getElementById('add-team');
+teamForm.addEventListener('submit', addTeam);
