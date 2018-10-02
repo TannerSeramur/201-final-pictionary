@@ -2,19 +2,19 @@
 // popup modal
 
 
-    var pop1 = document.getElementById("popup-1");
-    var pop2 = document.getElementById("popup-2");
-    var pop3 = document.getElementById("popup-2");
-        
-    var myFunc = function(type){
-        console.log(type);
-        document.getElementById(type).classList.add("isvisable");   
-    }
-    var closePop = function(type){
-        if(event.currentTarget === event.target){
-        document.getElementById(type).classList.remove("isvisable");
-        }
-    }
+var pop1 = document.getElementById('popup-1');
+var pop2 = document.getElementById('popup-2');
+var pop3 = document.getElementById('popup-2');
+
+var myFunc = function(type){
+  console.log(type);
+  document.getElementById(type).classList.add('isvisable');
+};
+var closePop = function(type){
+  if(event.currentTarget === event.target){
+    document.getElementById(type).classList.remove('isvisable');
+  }
+};
 
 
 // Global variables
@@ -121,6 +121,10 @@ function playGame() {
   showEndOfGameResults();
 }
 
+function loadGamePage() {
+  window.location.href = 'game.html';
+}
+
 function startRound() {
 
 }
@@ -172,3 +176,6 @@ console.log('arrayOfButtons', removeTeamButtons);
 for (var b of removeTeamButtons) {
   b.addEventListener('click', removeTeam);
 }
+var playButton = document.getElementById('play-button');
+playButton.addEventListener('click', loadGamePage);;
+
