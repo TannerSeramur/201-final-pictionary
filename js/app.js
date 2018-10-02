@@ -25,7 +25,6 @@ function Game() {
   this.currentRound = 1;
 }
 
-
 //team constructor function
 function Team(teamName) {
   this.teamName = teamName;
@@ -52,7 +51,13 @@ function Team(teamName) {
 
 
 // remove team
-
+function removeTeam(teamName) {
+  for (let i = 0; i < Game.teams.length; i++) {
+    if (teamName === Game.teams[i].teamName) {
+      Game.teams.splice(i, 1);
+    }
+  }
+}
 
 
 
