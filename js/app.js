@@ -17,6 +17,7 @@ var closePop = function(){
 // Global variables
 var maxRounds = 3;
 Game.teams = [];
+var game = new Game();
 
 // game constructor function
 function Game() {
@@ -33,22 +34,6 @@ function Team(teamName) {
 }
 
 
-
-
-// modals for index page here
-
-
-
-
-// add new game
-
-
-
-// add new team
-
-
-
-
 // remove team
 function removeTeam(teamName) {
   for (let i = 0; i < Game.teams.length; i++) {
@@ -59,9 +44,16 @@ function removeTeam(teamName) {
 }
 
 
+function startGame() {
+  // This gets kicked off when the play button on index.html gets clicked
+
+}
+
 
 // turn start here
+function startTurn() {
 
+}
 
 
 
