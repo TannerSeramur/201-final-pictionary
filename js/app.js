@@ -123,6 +123,10 @@ function playGame() {
   showEndOfGameResults();
 }
 
+function loadGamePage() {
+  window.location.href = 'game.html';
+}
+
 function startRound() {
 
 }
@@ -174,3 +178,5 @@ console.log('arrayOfButtons', removeTeamButtons);
 for (var b of removeTeamButtons) {
   b.addEventListener('click', removeTeam);
 }
+var playButton = document.getElementById('play-button');
+playButton.addEventListener('click', loadGamePage);
