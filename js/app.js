@@ -45,7 +45,13 @@ function removeTeam(teamName) {
 
 // when instructions button on index.html gets clicked
 function showInstructions() {
+  console.log('Look! Instructions!');
   // TODO: implement show instructions modal
+}
+
+function showHighScores() {
+  console.log('Look! High scores!');
+  // TODO: show high scores modal
 }
 
 // called in playGame
@@ -68,6 +74,7 @@ function renderTeams() {
 
 // When the play button on index.html gets clicked
 function playGame() {
+  console.log('Let\'s play!');
   // Do all the choose team things before we can start
   chooseTeams();
   // loop over the number of rounds in our game
@@ -121,4 +128,10 @@ function showTurnResults() {
 function showEndOfGameResults() {
   // TODO: display end of game results
 }
-// role switch here
+
+var startButton = document.getElementById('pop1');
+var instructionsButton = document.getElementById('pop2');
+var scoresButton = document.getElementById('pop3');
+startButton.addEventListener('click', playGame);
+instructionsButton.addEventListener('click', showInstructions);
+scoresButton.addEventListener('click', showHighScores);
