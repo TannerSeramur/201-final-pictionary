@@ -1,10 +1,10 @@
-
      nav{
        background-color:#53787D;
        background-color:#eee7da;
        width: 100vw;
        height: 30px;
      }
+
      body{
        /* background-color: #f1f1f1; */
       width: 100%;
@@ -20,14 +20,17 @@
        align-content: center;
        align-items: center;
      }
+
      .title{
        margin-top: 80px;
      }
+
      .title h1{
       font-family: 'Ubuntu', sans-serif, bold;
       font-size: 4em;
       color: #fcc377;
      }
+
      #buttons-container{
        /* background-color:red; */
        width: 500px;
@@ -36,9 +39,9 @@
        flex-direction: column;
        align-content: center;
        align-items: center;
-       justify-content: center;
-       
+       justify-content: center;  
      }
+
      .pop button{
        margin: 10px;
        width: 150px;
@@ -47,13 +50,7 @@
        background: #fcc377;
        color: black;
        border-radius: 10px;
-       
-
      }
-
-    
-
-
 
      /* modal styles here */
      .popup-container{
@@ -91,4 +88,3 @@
     margin-left: auto;
     margin-right: auto;
     }
-    
