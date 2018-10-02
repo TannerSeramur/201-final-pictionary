@@ -2,9 +2,10 @@
 // popup modal
 
 
-    var pop1 = document.getElementById("popup-1");
-    var pop2 = document.getElementById("popup-2");
-    var pop3 = document.getElementById("popup-2");
+    var pop1 = document.getElementById("pop1");
+    var pop2 = document.getElementById("pop2");
+    var pop3 = document.getElementById("pop3");
+    var pop4 = document.getElementById("pop4");
         
     var myFunc = function(type){
         console.log(type);
@@ -13,6 +14,12 @@
     var closePop = function(type){
         if(event.currentTarget === event.target){
         document.getElementById(type).classList.remove("isvisable");
+        }
+    }
+
+    function hideScreen(type){
+      if(event.currentTarget === event.target){
+        document.getElementById(type).classList.add("invisable");
         }
     }
 

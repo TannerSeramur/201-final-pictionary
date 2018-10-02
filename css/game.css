@@ -1,0 +1,57 @@
+body{
+    width: 100%;
+    height: 100%;
+    background-color:#53787D;
+   }
+
+   main{
+       width: 100vw;
+       /* background-color:red; */
+
+   }
+   .content-container{
+    width: 500px;
+    margin: 0 auto;
+    /* background-color: red; */
+   }
+   #myProgress {
+    width: 100%;
+    height: 30px;
+    position: relative;
+    background-color: #ddd;
+    margin-top: 20px;
+}    
+#myBar {
+    background-color: #4CAF50;
+    width: 0px;
+    height: 30px;
+    position: absolute;
+}
+
+
+/* modal styles here */
+.popup-container{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 00;
+    left: 0;
+    background-color: rgba(0,0,0,.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* visibility: hidden; */
+
+}
+.popup{
+    background-color: #f2f2f2;
+    width: 60vw;
+    height: 90vh;
+    padding: 30px;
+    z-index: 100;
+}
+
+.invisable{
+    visibility: hidden !important;
+}
+
