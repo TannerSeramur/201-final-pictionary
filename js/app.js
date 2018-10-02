@@ -1,5 +1,6 @@
 
 // popup modal
+<<<<<<< HEAD
 console.log('getting here');
 var pop1 = document.getElementById('popup-1');
 var pop2 = document.getElementById('popup-2');
@@ -14,6 +15,23 @@ var closePop = function(type){
     document.getElementById(type).classList.remove('isvisable');
   }
 };
+=======
+
+
+    var pop1 = document.getElementById("popup-1");
+    var pop2 = document.getElementById("popup-2");
+    var pop3 = document.getElementById("popup-2");
+        
+    var myFunc = function(type){
+        console.log(type);
+        document.getElementById(type).classList.add("isvisable");   
+    }
+    var closePop = function(type){
+        if(event.currentTarget === event.target){
+        document.getElementById(type).classList.remove("isvisable");
+        }
+    }
+>>>>>>> 72d519f2c20077c1739c1d06b7b45b51bce0b59d
 
 
 // Global variables
