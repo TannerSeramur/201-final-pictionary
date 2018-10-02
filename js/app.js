@@ -21,7 +21,6 @@ Game.teams = [];
 // game constructor function
 function Game() {
   this.maxRounds = maxRounds;
-  this.teams = [];
   this.currentRound = 1;
 }
 
