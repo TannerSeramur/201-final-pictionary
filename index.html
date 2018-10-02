@@ -4,50 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="css/reset.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/styles.css" />
     <title>pictionary</title>
 </head>
 <body>
-  <!-- <div id="container">
-  <h1>Welcome to Pictionary</h1> -->
+  <header>
+    <nav></nav>
+  </header>
 <main>
 
+    <div id="container">
+    <h1>Welcome to Pictionary</h1>
 
+    <div id = "buttons-container">
     <div class = "modal">
       <div class="pop">
-          <button class='button green' onclick="myFunc('login')">Start</button>
+          <button class='button' onclick="myFunc('pop1')">Start</button>
       </div>
             
-      <div class="popup-container" id= "popup" onclick="closePop()">
+      <div class="popup-container" id= "popup-1" onclick="closePop()">
         <div class="popup">
-  <!-- text goes here          --> 
+          <div class = "start-content">
+            <h2>Teams:</h2>
+            <ul id = "teams">
+              <li><p>Team 1</p><i class="fas fa-times-circle"></i></li>
+            </ul>
+
+            <form id = "add-team">
+              <label for="teamName"></label>
+              <input type="text" name = "name" placeholder="Enter New Team Name ">
+            </form>
+        </div>
+
       </div>
     </div>
 
     <div class = "modal">
         <div class="pop">
-            <button class='button green' onclick="myFunc('login')">Instruction</button>
+            <button class='button' onclick="myFunc('pop2')">Instruction</button>
         </div>
               
-        <div class="popup-container" id= "popup" onclick="closePop()">
+        <div class="popup-container" id= "popup-2" onclick="closePop()">
           <div class="popup">
     <!-- text goes here          --> 
+            <h1>here</h1>
         </div>
       </div>
 
       <div class = "modal">
           <div class="pop">
-              <button class='button green' onclick="myFunc('login')">Scores</button>
+              <button class='button' onclick="myFunc('pop3')">Scores</button>
           </div>
                 
-          <div class="popup-container" id= "popup" onclick="closePop()">
+          <div class="popup-container" id= "popup-3" onclick="closePop()">
             <div class="popup">
       <!-- text goes here          --> 
           </div>
         </div>
+      </div>
     
-
+      </div>
  
           <script src = "js/app.js"></script>
 

@@ -1,6 +1,6 @@
+
 // popup modal
-console.log('getting here');
-var login = document.getElementById('popup');
+
 
 var myFunc = function(type){
   console.log('open');
