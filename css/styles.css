@@ -9,9 +9,8 @@
        /* background-color: #f1f1f1; */
       width: 100%;
 	    height: 100%;
-       /* background-color: #70b991; */
-       background-color:#53787D;
-       /* background-color:#eee7da; */
+      background-color:#53787D;
+
      }
 
      #container{
@@ -27,6 +26,10 @@
      .title h1{
       font-family: 'Ubuntu', sans-serif, bold;
       font-size: 3em;
+      color: #fcc377;
+     }
+     #buttons-container{
+       /* background-color:red; */
      }
 
     
