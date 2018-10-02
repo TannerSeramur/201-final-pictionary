@@ -21,6 +21,13 @@ function hideScreen(type){
 }
 
 
+function hideScreen(type){
+  if(event.currentTarget === event.target){
+    document.getElementById(type).classList.add('invisable');
+  }
+}
+
+
 // Global variables
 var maxRounds = 3;
 Game.teams = [];
