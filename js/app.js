@@ -174,18 +174,51 @@ function showEndOfGameResults() {
   // TODO: display end of game results
 }
 
-// var startButton = document.getElementById('pop1');
-// var instructionsButton = document.getElementById('pop2');
-// var scoresButton = document.getElementById('pop3');
-// startButton.addEventListener('click', playGame);
-// instructionsButton.addEventListener('click', showInstructions);
-// scoresButton.addEventListener('click', showHighScores);
-var addTeamButton = document.getElementById('add-team-button');
-addTeamButton.addEventListener('click', addTeam);
-var removeTeamButtons = document.getElementsByClassName('fas fa-times-circle');
-console.log('arrayOfButtons', removeTeamButtons);
-for (var b of removeTeamButtons) {
-  b.addEventListener('click', removeTeam);
+function fillWordList(fileName) {
+  // This code was suggested by answers to 
+  // https://stackoverflow.com/questions/14446447/how-to-read-a-local-text-file#14446538.
+  var allText = '';
+  var textFile = new XMLHttpRequest();
+  textFile.open('GET', fileName, false);
+  textFile.onreadystatechange = function ()
+  {
+    if(textFile.readyState === 4)
+    {
+      if(textFile.status === 200 || textFile.status === 0)
+      {
+        allText = textFile.responseText;
+      }
+    }
+  };
+  textFile.send(null);
+  var words = allText.split('\n');
+  for (var i in words) {
+    words[i] = words[i].toLowerCase();
+  }
+  return words;
 }
-var playButton = document.getElementById('play-button');
-playButton.addEventListener('click', loadGamePage);
+
+function getRandomWord() {
+  var randomWord = '';
+  do {
+    var randIndex = Math.floor(Math.random() * words.length);
+    randomWord = words[randIndex];
+    console.log(randomWord);
+  } while(usedWords.includes(randomWord));
+  usedWords.push(randomWord);
+  return randomWord;
+}
+
+function createEventListeners() {
+  var addTeamButton = document.getElementById('add-team-button');
+  addTeamButton.addEventListener('click', addTeam);
+  var removeTeamButtons = document.getElementsByClassName('fas fa-times-circle');
+  console.log('arrayOfButtons', removeTeamButtons);
+  for (var b of removeTeamButtons) {
+    b.addEventListener('click', removeTeam);
+  }
+  var playButton = document.getElementById('play-button');
+  playButton.addEventListener('click', loadGamePage);
+}
+
+createEventListeners();
