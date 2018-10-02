@@ -25,11 +25,30 @@
      }
      .title h1{
       font-family: 'Ubuntu', sans-serif, bold;
-      font-size: 3em;
+      font-size: 4em;
       color: #fcc377;
      }
      #buttons-container{
        /* background-color:red; */
+       width: 500px;
+       margin-top: 20px;
+       display:flex;
+       flex-direction: column;
+       align-content: center;
+       align-items: center;
+       justify-content: center;
+       
+     }
+     .pop button{
+       margin: 10px;
+       width: 150px;
+       height: 40px;
+       border: none;
+       background: #fcc377;
+       color: black;
+       border-radius: 10px;
+       
+
      }
 
     
