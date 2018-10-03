@@ -23,7 +23,7 @@ nav{
 body{
   width: 100%;
   height: 100%;
-  background-color:#53787D;
+  background-color:rgba(73, 10, 10, 0.75);
 }
 
 .title{
@@ -60,12 +60,14 @@ body{
 
  /* modal styles here */
 .popup-container{
+  background-image: url("https://www.booooooom.com/wp-content/uploads/2016/11/google-quick-draw.jpg");
   position: absolute;
   top: 0;
   bottom: 0;
   right: 00;
   left: 0;
-  background-color: rgba(0,0,0,.75);
+  background-color:goldenrod;
+  color:rebeccapurple;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,11 +76,14 @@ body{
 }
 
 .popup{
-  background-color: #f2f2f2;
+  background-color:#fcc377;
   max-width: 600px;
   padding: 30px;
-  min-width: 450px;
+  min-width: 550px;
   z-index: 100;
+  color:brown;
+  font-style: italic;
+  font-size:15px;
 }
 
 .popup input[type = submit]{
@@ -94,3 +99,19 @@ body{
   margin-left: auto;
   margin-right: auto;
 }
+h2 {
+  color:rgb(214, 89, 44);
+  font-style: bold;
+  font-size:40px;
+    
+  }
+
+  body {
+  background-image: url("https://msdnshared.blob.core.windows.net/media/2017/05/Pen.png");
+  height: 100vh;
+  width: 100vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -ms-high-contrast-adjust:auto;
+  }
