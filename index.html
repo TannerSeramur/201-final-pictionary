@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/styles.css" />
+    <title>Pictionary</title>
+  </head>
+
+  <body>
+
+    <header>
+    </header>
+    
+    <main>
+      <div id="container">
+        <div class = "title">
+          <h1>Welcome to Pictionary</h1>
+        </div>
+        <div id = "buttons-container">
+          <div class = "modal">
+            <div class="pop">
+              <button id="start-button" class='button' onclick="myFunc('pop1')">Start</button>
+            </div>
+            <div class="popup-container" id= "pop1" onclick="closePop('pop1')">
+              <div class="popup">
+                <div class = "start-content">
+                  <h2>Teams:</h2>
+                  <ul id = "teams">
+                    <li></li>
+                  </ul>
+                    <label for="teamName"></label>
+                    <input id="add-team-input" type="text" name = "teamName" placeholder="Enter New Team Name ">
+                    <button id="add-team-button" class="fas fa-plus"></button>
+                    <button id="play-button">Play</button>
+                </div>
+              </div>
+            </div>
+            <div class = "modal">
+              <div class="pop">
+                <button class='button' onclick="myFunc('pop2')">Instruction</button>
+              </div>  
+              <div class="popup-container" id= "pop2" onclick="closePop('pop2')">
+                <div class="popup">
+                  <h2>Learn to play Pictionary</h2>
+                  <p>Want to learn how to play one America's timeless family games? Well, friend, it looks like you have come to our site and that is gonna have to do.</p>
+                  <p> If we were in the real world (wake UP), the drawer would receive a card with a word to draw, but here on the web, we will just ask everyone but the drawer to look away before we show the word. If not, the penalty will be left up for The Great Julias Ceaser to decide, and I wouldn't risk that, it's just not worth it.</p>
+                  <p> After that, the drawer has a set time to illustrate the word and is not able to communicate to the guesser other than saying "yes" or "no". In the real-life version, you normally would also be racing against another team as you are guessing, but sharing a mouse/trackpad  & a screen doesn't seem like a fun time from our perspective, although it would be fun to watch others struggle...</p>
+                  <p>If the guesser gets the correct answer before time runs out, they win the round, get to live another year, otherwise, they lose. You can decide how many rounds you want to play, we won't keep you, hostage, cause we're nice like that.</p>
+                </div>
+              </div>
+              <div class = "modal">
+                <div class="pop">
+                  <button class='button' onclick="myFunc('pop3')">Scores</button>
+                </div>
+                <div class="popup-container" id= "pop3">
+                  <div class="popup">
+                    <!-- text goes here          --> 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+    </footer>
+    
+    <script src = "js/app.js"></script>
+  </body>
+</html>
