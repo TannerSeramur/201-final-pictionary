@@ -18,6 +18,7 @@ function showWord(){
 
 }
 
+
 function playGame() {
   // loop over the number of rounds in our game
   for (let round = 1; round <= game.maxRounds; round++) {
@@ -32,7 +33,6 @@ function playGame() {
   // Game is done. Show results.
   showEndOfGameResults();
 }
-
 
 function startRound() {
 
@@ -70,32 +70,6 @@ function showTurnResults() {
 
 function showEndOfGameResults() {
   // TODO: display end of game results
-}
-
-
-
-function fillWordList(fileName) {
-  // This code was suggested by answers to
-  // https://stackoverflow.com/questions/14446447/how-to-read-a-local-text-file#14446538.
-  var allText = '';
-  var textFile = new XMLHttpRequest();
-  textFile.open('GET', fileName, false);
-  textFile.onreadystatechange = function ()
-  {
-    if(textFile.readyState === 4)
-    {
-      if(textFile.status === 200 || textFile.status === 0)
-      {
-        allText = textFile.responseText;
-      }
-    }
-  };
-  textFile.send(null);
-  var words = allText.split('\n');
-  for (var i in words) {
-    words[i] = words[i].toLowerCase();
-  }
-  return words;
 }
 
 function getRandomWord() {
