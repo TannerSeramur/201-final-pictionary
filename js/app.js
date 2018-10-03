@@ -20,14 +20,6 @@ function hideScreen(type){
   }
 }
 
-
-function hideScreen(type){
-  if(event.currentTarget === event.target){
-    document.getElementById(type).classList.add('invisable');
-  }
-}
-
-
 // Global variables
 var maxRounds = 3;
 Game.teams = [];
@@ -99,9 +91,13 @@ function renderTeams() {
     newP.textContent = Game.teams[i].teamName;
     // newLi.textContent = Game.teams[i].teamName;
     newLi.appendChild(newP);
-    var newI = document.createElement('i');
-    newI.setAttribute('class', 'fas fa-times-circle');
-    newLi.appendChild(newI);
+    // var newI = document.createElement('i');
+    // newI.setAttribute('class', 'fas fa-times-circle');
+    var removeButton = document.createElement('button');
+    removeButton.setAttribute('class', 'fas fa-times-circle');
+    removeButton.addEventListener('click', removeTeam);
+    // newLi.appendChild(newI);
+    newLi.appendChild(removeButton);
     teamsList.appendChild(newLi);
   }
 }
