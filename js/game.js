@@ -14,6 +14,39 @@ function addElement(element, content, parent) {
     return newElement;
   }
 
+var id;
+
+// && document.getElementById('myBar').style.width != '100%'
+// document.getElementById('myBar').style.width;
+function timer() {
+  var elem = document.getElementById('myBar');
+  var width = 0;
+  id = setInterval(frame, 300);
+  function frame() {
+	  if (width == 100) {
+      clearInterval(id);
+	  }
+	  else {
+      width++;
+      elem.style.width = width + '%';
+    }
+    
+    
+  }
+}
+var timerFinished = false;
+function startTimer(){
+  setTimeout(endPhase, 5000);
+}
+function endPhase(){
+  console.log('boom');
+  timerFinished = true;
+  return timerFinished;
+}
+
+var width = document.getElementById('myBar').width;
+console.log('here'+ document.getElementById('myBar').width);
+
 
 // modal
 function hideScreen(type){
@@ -23,6 +56,9 @@ function hideScreen(type){
 }
 function ready(){
   document.getElementById('pop4').classList.add('invisable');
+  startTimer();
+
+
 }
 
 var showWordBtn = document.getElementById('showWord');
@@ -55,23 +91,42 @@ function readyGuess(){
   guessInput.id = 'userGuess';
   guessInput.name = 'userGuess';
   guessForm.addEventListener('submit',setGuess);
+  timer();
 
 }
+
 
 function setGuess(event){
   event.preventDefault();
   var userGuess = event.target.userGuess.value;
   console.log(roundWord);
   console.log(userGuess);
-  if(userGuess.toLowerCase() === roundWord){
-    alert('Right!');
-  }else{
-    var list = document.getElementById('guessList');
-    var listItem = addElement('li',userGuess,list);
+  do{ 
+  
+    console.log(timerFinished);
 
-
+    if(userGuess.toLowerCase() === roundWord ){
+      alert('Right!');
+    }else if(userGuess.toLowerCase() != roundWord){
+      var list = document.getElementById('guessList');
+      var listItem = addElement('li',userGuess,list);
+    }
   }
+  while(timerFinished == false);
+  
+  alert('timeout');
+
+
+  // if(userGuess.toLowerCase() === roundWord ){
+  //   alert('Right!');
+  // }else if(userGuess.toLowerCase() != roundWord){
+  //   var list = document.getElementById('guessList');
+  //   var listItem = addElement('li',userGuess,list);
+  // }
+  console.log(timerFinished);
+
 }
+
 
 
 function getTeamsFromLocalStorage() {
