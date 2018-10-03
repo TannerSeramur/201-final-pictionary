@@ -27,17 +27,51 @@ function ready(){
 var showWordBtn = document.getElementById('showWord');
 showWordBtn.addEventListener('click', showWord);
 
+var roundWord = getRandomWord();
+
 function showWord(){
   var secretWord = document.getElementById('secretWord');
-  addElement('p','Your word is: ', secretWord);
+  addElement('p','Your word is: ' + roundWord, secretWord);
   showWordBtn.removeEventListener('click', showWord);
   var readyBtn = addElement('button', 'Ready',secretWord);
   readyBtn.addEventListener('click', ready);
-
-
   
+}
+var doneBtn = document.getElementById('clearBtn');
+doneBtn.addEventListener('click',roleSwitch);
+
+function roleSwitch(){
+  document.getElementById('pop5').classList.add('isvisable');
+  var readyGuessBtn = document.getElementById('readyGuessBtn');
+  readyGuessBtn.addEventListener('click', readyGuess);
+}
+function readyGuess(){
+  event.preventDefault();
+  console.log('readyGuess');
+  document.getElementById('pop5').classList.remove('isvisable');
+  var guessForm = document.getElementById('guessInput');
+  var guessInput = addElement('input', '', guessForm);
+  guessInput.id = 'userGuess';
+  guessInput.name = 'userGuess';
+  guessForm.addEventListener('submit',setGuess);
 
 }
+
+function setGuess(event){
+  event.preventDefault();
+  var userGuess = event.target.userGuess.value;
+  console.log(roundWord);
+  console.log(userGuess);
+  if(userGuess.toLowerCase() === roundWord){
+    alert('Right!');
+  }else{
+    var list = document.getElementById('guessList');
+    var listItem = addElement('li',userGuess,list);
+
+
+  }
+}
+
 
 function getTeamsFromLocalStorage() {
   var jsonTeams = JSON.parse(localStorage.getItem('teams'));
@@ -46,6 +80,7 @@ function getTeamsFromLocalStorage() {
     new Team(jsonTeam['teamName']);
   }
 }
+
 
 function playGame() {
   // loop over the number of rounds in our game
@@ -61,6 +96,7 @@ function playGame() {
   // Game is done. Show results.
   showEndOfGameResults();
 }
+
 
 function startRound() {
 
@@ -98,6 +134,32 @@ function showTurnResults() {
 
 function showEndOfGameResults() {
   // TODO: display end of game results
+}
+
+
+
+function fillWordList(fileName) {
+  // This code was suggested by answers to
+  // https://stackoverflow.com/questions/14446447/how-to-read-a-local-text-file#14446538.
+  var allText = '';
+  var textFile = new XMLHttpRequest();
+  textFile.open('GET', fileName, false);
+  textFile.onreadystatechange = function ()
+  {
+    if(textFile.readyState === 4)
+    {
+      if(textFile.status === 200 || textFile.status === 0)
+      {
+        allText = textFile.responseText;
+      }
+    }
+  };
+  textFile.send(null);
+  var words = allText.split('\n');
+  for (var i in words) {
+    words[i] = words[i].toLowerCase();
+  }
+  return words;
 }
 
 function getRandomWord() {
