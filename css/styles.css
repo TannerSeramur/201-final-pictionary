@@ -77,3 +77,99 @@ div#content {
   margin-right: auto;
   }
   
+body{
+  /* background-color: #f1f1f1; */
+  width: 100%;
+  height: 100%;
+  background-color:#53787D;
+}
+
+nav{
+  background-color:#53787D;
+  background-color:#eee7da;
+  width: 100vw;
+  height: 30px;
+}
+
+#container{
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+body{
+  width: 100%;
+  height: 100%;
+  background-color:#53787D;
+}
+
+.title{
+  margin-top: 80px;
+}
+
+.title h1{
+  font-family: 'Ubuntu', sans-serif, bold;
+  font-size: 4em;
+  color: #fcc377;
+}
+
+#buttons-container{
+  /* background-color:red; */
+  width: 500px;
+  margin-top: 20px;
+  display:flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;  
+}
+
+.pop button{
+  margin: 10px;
+  width: 150px;
+  height: 40px;
+  border: none;
+  background: #fcc377;
+  color: black;
+  border-radius: 10px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+ /* modal styles here */
+.popup-container{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 00;
+  left: 0;
+  background-color: rgba(0,0,0,.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+
+}
+
+.popup{
+  background-color: #f2f2f2;
+  max-width: 600px;
+  padding: 30px;
+  min-width: 450px;
+  z-index: 100;
+}
+
+.popup input[type = submit]{
+  margin-top: 15px;
+}
+
+.isvisable{
+  visibility:visible !important;
+}
+
+.modal-body img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
