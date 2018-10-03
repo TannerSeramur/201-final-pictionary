@@ -1,4 +1,22 @@
+function addElement(element, content, parent) {
+    var newElement = document.createElement(element);
+    var newContent = document.createTextNode(content);
+    newElement.appendChild(newContent);
+    parent.appendChild(newElement);
+    return newElement;
+  }
 
+// modal
+function hideScreen(type){
+  if(event.currentTarget === event.target){
+    document.getElementById(type).classList.add('invisable');
+  }
+}
+function showWord(){
+  var secretWord = document.getElementById('secretWord');
+  addElement('p','Your word is: ', secretWord);
+
+}
 
 
 function playGame() {
@@ -53,7 +71,6 @@ function showTurnResults() {
 function showEndOfGameResults() {
   // TODO: display end of game results
 }
-
 
 function getRandomWord() {
   var randomWord = '';

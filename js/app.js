@@ -14,11 +14,11 @@ var closePop = function(type){
   }
 };
 
-function hideScreen(type){
-  if(event.currentTarget === event.target){
-    document.getElementById(type).classList.add('invisable');
-  }
-}
+// function hideScreen(type){
+//   if(event.currentTarget === event.target){
+//     document.getElementById(type).classList.add('invisable');
+//   }
+// }
 
 // Global variables
 var maxRounds = 3;
