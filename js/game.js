@@ -1,3 +1,10 @@
+// globals
+var game = getGameFromLocalStorage();
+getTeamsFromLocalStorage();
+
+function getGameFromLocalStorage() {
+  var gameJSON = localStorage.getItem('game');
+  return new Game(gameJSON['maxRounds']);
 function addElement(element, content, parent) {
     var newElement = document.createElement(element);
     var newContent = document.createTextNode(content);
@@ -32,6 +39,13 @@ function showWord(){
 
 }
 
+function getTeamsFromLocalStorage() {
+  var jsonTeams = JSON.parse(localStorage.getItem('teams'));
+  for (var jsonTeam of jsonTeams) {
+    console.log('jsonTeam=', jsonTeam);
+    new Team(jsonTeam['teamName']);
+  }
+}
 
 function playGame() {
   // loop over the number of rounds in our game
