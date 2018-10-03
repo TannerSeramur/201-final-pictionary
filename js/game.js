@@ -5,6 +5,7 @@ getTeamsFromLocalStorage();
 function getGameFromLocalStorage() {
   var gameJSON = localStorage.getItem('game');
   return new Game(gameJSON['maxRounds']);
+}
 function addElement(element, content, parent) {
     var newElement = document.createElement(element);
     var newContent = document.createTextNode(content);
