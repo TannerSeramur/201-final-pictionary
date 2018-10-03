@@ -1,5 +1,3 @@
-
-
 function playGame() {
   // loop over the number of rounds in our game
   for (let round = 1; round <= game.maxRounds; round++) {
@@ -14,7 +12,6 @@ function playGame() {
   // Game is done. Show results.
   showEndOfGameResults();
 }
-
 
 function startRound() {
 
