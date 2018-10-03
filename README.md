@@ -9,4 +9,8 @@
 * Came up with the high level view of how labor will be divided.
 
 ## Day 2 (Tuesday)
-
+* Worked on the starting page to get the flow of a UX experiance. Building the functionality of it piece by piece still.
+* Made the game, & team constructors as well as the objects and their methods. 
+* Added event listeners/handlers to manipulate the behaivior of the site.
+* Picked a color scheme to be our style to use for the rest of our project.
+* Demonstrated to instructors our demo.
