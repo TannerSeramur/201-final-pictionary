@@ -5,6 +5,38 @@ getTeamsFromLocalStorage();
 function getGameFromLocalStorage() {
   var gameJSON = localStorage.getItem('game');
   return new Game(gameJSON['maxRounds']);
+function addElement(element, content, parent) {
+    var newElement = document.createElement(element);
+    var newContent = document.createTextNode(content);
+    newElement.appendChild(newContent);
+    parent.appendChild(newElement);
+    return newElement;
+  }
+
+
+// modal
+function hideScreen(type){
+  if(event.currentTarget === event.target){
+    document.getElementById(type).classList.add('invisable');
+  }
+}
+function ready(){
+  document.getElementById('pop4').classList.add('invisable');
+}
+
+var showWordBtn = document.getElementById('showWord');
+showWordBtn.addEventListener('click', showWord);
+
+function showWord(){
+  var secretWord = document.getElementById('secretWord');
+  addElement('p','Your word is: ', secretWord);
+  showWordBtn.removeEventListener('click', showWord);
+  var readyBtn = addElement('button', 'Ready',secretWord);
+  readyBtn.addEventListener('click', ready);
+
+
+  
+
 }
 
 function getTeamsFromLocalStorage() {
@@ -67,7 +99,6 @@ function showTurnResults() {
 function showEndOfGameResults() {
   // TODO: display end of game results
 }
-
 
 function getRandomWord() {
   var randomWord = '';
