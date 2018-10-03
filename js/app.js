@@ -64,6 +64,8 @@ function removeTeam(event) {
 function showInstructions() {
   console.log('Look! Instructions!');
   // TODO: implement show instructions modal
+  var instructionsModal = document.getElementById('pop2');
+  instructionsModal.classList.add()
 }
 
 function showHighScores() {
@@ -104,11 +106,15 @@ function renderTeams() {
 
 // When the start button on index.html gets clicked
 function startGame() {
+  console.log('Is this even happening?');
   // At least for now, let's clear local storage before we begin
   localStorage.clear();
+  // Put in some dummy score data
+  var scores = JSON.stringify([{teamName: 'Awesome', score: '3'}, {teamName: 'Rad', score: '1'}]);
+  console.log(scores);
+  localStorage.setItem('scores', JSON.stringify(scores));
   console.log('Let\'s play!');
   // Do all the choose team things before we can start
-  // chooseTeams();
   showTeamSelect();
 }
 
@@ -118,6 +124,8 @@ function loadGamePage() {
 }
 
 function createEventListeners() {
+  var startButton = document.getElementById('start-button');
+  startButton.addEventListener('click', startGame);
   var addTeamButton = document.getElementById('add-team-button');
   addTeamButton.addEventListener('click', addTeam);
   var playButton = document.getElementById('play-button');
@@ -127,6 +135,10 @@ function createEventListeners() {
 function gameStateToLocalStorage() {
   localStorage.setItem('game', JSON.stringify(game));
   localStorage.setItem('teams', JSON.stringify(Game.teams));
+}
+
+function getScoresFromLocalStorage() {
+  // TODO - get the storage
 }
 
 createEventListeners();
