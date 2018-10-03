@@ -17,7 +17,7 @@
                         
             <div class="popup-container" id= "pop4" onclick="hideScreen('pop4')">
                 <div class="popup"><p>Make sure the person drawing is the only one looking at the screen.</p>
-                  <button onclick = "showWord()"> OK </button>
+                  <button id = "showWord"> OK </button>
                   <div id = "secretWord"></div>
 
                     <!-- text goes here--></div>
@@ -33,9 +33,9 @@
         <input id="clearBtn" type="button" value="Clear" />
       </p>
         <div id="myProgress">
-          <div id="myBar">
-          </div>
+          <div id="myBar"></div>
         </div>
+        <button>Done</button>
       </div>
        <script src = "js/app.js"></script>
        <script src="js/words.js"></script>
