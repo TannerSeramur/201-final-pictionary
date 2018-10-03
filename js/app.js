@@ -120,16 +120,12 @@ function loadGamePage() {
 function createEventListeners() {
   var addTeamButton = document.getElementById('add-team-button');
   addTeamButton.addEventListener('click', addTeam);
-  var removeTeamButtons = document.getElementsByClassName('fas fa-times-circle');
-  console.log('arrayOfButtons', removeTeamButtons);
-  for (var b of removeTeamButtons) {
-    b.addEventListener('click', removeTeam);
-  }
   var playButton = document.getElementById('play-button');
   playButton.addEventListener('click', loadGamePage);
 }
 
 function gameStateToLocalStorage() {
+  localStorage.setItem('game', JSON.stringify(game));
   localStorage.setItem('teams', JSON.stringify(Game.teams));
 }
 
