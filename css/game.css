@@ -75,7 +75,7 @@ body{
 }
 
 .modal-container {
-    background-image:url("https://media1.tenor.com/images/0a6b9cd28b21c42fbfef14442ad546ef/tenor.gif?itemid=8579522");
+    background-image:src("https://media1.tenor.com/images/0a6b9cd28b21c42fbfef14442ad546ef/tenor.gif?itemid=8579522");
     color:brown ;
     font-size: 30px;
     font-style: italic;
