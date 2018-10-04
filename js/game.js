@@ -76,11 +76,13 @@ function startGuessTimer(){
 
 function endGuessPhase(){
   if(wordGuessed){
-    showWin();
+    showWin()
+    hideBar();
     Game.teams[0].score++;
   }
   else{
     showLose();
+    hideBar();
   }
 }
 
@@ -196,6 +198,10 @@ function showWin(){
 }
 function showLose(){
   document.getElementById('losePop').classList.add('isvisable');
+}
+function hideBar(){
+  document.getElementById('myProgress').classList.add('invisable');
+  document.getElementById('myBar').classList.add('invisable');
 }
 
 
