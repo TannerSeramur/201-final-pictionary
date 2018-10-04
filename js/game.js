@@ -1,6 +1,9 @@
+// import {startPlayback} from "./canvas.js";
+
 // globals
 var game = getGameFromLocalStorage();
 getTeamsFromLocalStorage();
+var totalTime = 30000;
 
 function getGameFromLocalStorage() {
   var gameJSON = localStorage.getItem('game');
@@ -15,6 +18,92 @@ function addElement(element, content, parent) {
   }
 
 
+
+// && document.getElementById('myBar').style.width != '100%'
+// document.getElementById('myBar').style.width;
+var id;
+function timer() {
+  var elem = document.getElementById('myBar');
+  var width = 0;
+  id = setInterval(frame, 300);
+  function frame() {
+	  if (width == 100) {
+      clearInterval(id);
+	  }
+	  else {
+      width++;
+      elem.style.width = width + '%';
+    }
+     
+  }
+}
+
+var doneBtn = document.getElementById('clearBtn');
+doneBtn.addEventListener('click', checkBlank);
+
+// turns canvas back 
+function blankCanvas(){
+  var canvas = document.getElementById('canvas1');
+  var ctx = canvas.getContext('2d');
+  ctx.fillStyle = 'black';
+  ctx.fillRect(0,0, canvas.width, canvas.height);
+}
+var blank = false;
+function checkBlank(){
+  blank = true;
+}
+
+function endDrawPhase(){
+  if(blank = true){
+  console.log('Done button Hit');
+  }else{
+    blankCanvas();
+  }
+}
+
+var timerFinished = false;
+var roundTimer; 
+
+// drawing timer
+function startDrawTimer(){
+  roundTimer = setTimeout(endDrawPhase, totalTime);
+}
+
+
+
+
+
+// function endDrawPhase();
+// {
+//   if(wordGuess){
+//     alert('you won');
+//     Game.teams[0].score++
+//   }
+//   else{
+//     alert('you lose');
+//   }
+// }
+
+// timer for guessing the drawing
+function startGuessTimer(){
+  roundTimer = setTimeout(endGuessPhase, totalTime);
+}
+function endGuessPhase(){
+  if(wordGuess){
+    alert('you won');
+    Game.teams[0].score++
+  }
+  else{
+    alert('you lose');
+  }
+}
+
+
+
+var width = document.getElementById('myBar').width;
+console.log('here'+ document.getElementById('myBar').width);
+
+
 // modal
 function hideScreen(type){
   if(event.currentTarget === event.target){
@@ -23,6 +112,9 @@ function hideScreen(type){
 }
 function ready(){
   document.getElementById('pop4').classList.add('invisable');
+  // startDrawTimer();
+
+
 }
 
 var showWordBtn = document.getElementById('showWord');
@@ -47,31 +139,51 @@ function roleSwitch(){
   readyGuessBtn.addEventListener('click', readyGuess);
 }
 function readyGuess(){
+  // startGuessTimer();
+
   event.preventDefault();
   console.log('readyGuess');
+
   document.getElementById('pop5').classList.remove('isvisable');
   var guessForm = document.getElementById('guessInput');
   var guessInput = addElement('input', '', guessForm);
   guessInput.id = 'userGuess';
   guessInput.name = 'userGuess';
   guessForm.addEventListener('submit',setGuess);
+  // timer();
 
 }
 
+var wordGuess = false;
 function setGuess(event){
   event.preventDefault();
   var userGuess = event.target.userGuess.value;
-  console.log(roundWord);
-  console.log(userGuess);
-  if(userGuess.toLowerCase() === roundWord){
-    alert('Right!');
-  }else{
-    var list = document.getElementById('guessList');
-    var listItem = addElement('li',userGuess,list);
+    if(userGuess.toLowerCase() === roundWord ){
+      wordGuess = true;
+      alert("right");
+      clearTimeout(roundTimer);
+    }else if(userGuess.toLowerCase() != roundWord){
+      var list = document.getElementById('guessList');
+      var listItem = addElement('li',userGuess,list);
+    }
+
+    var playBtn = document.getElementById('playBtn');
+    playBtn.addEventListener('click',startGuessTimer);
+  
+  
+  
 
 
-  }
+  // if(userGuess.toLowerCase() === roundWord ){
+  //   alert('Right!');
+  // }else if(userGuess.toLowerCase() != roundWord){
+  //   var list = document.getElementById('guessList');
+  //   var listItem = addElement('li',userGuess,list);
+  // }
+  console.log(timerFinished);
+
 }
+
 
 
 function getTeamsFromLocalStorage() {
@@ -125,8 +237,11 @@ function promptGuesser() {
   // TODO: show the prompt
 }
 
+// var okBtn = document.getElementById('readyGuessBtn');
+// okBtn.addEventListener('click',startGuessing);
+
 function startGuessing() {
-  // TODO: implement guessing code
+  console.log('hi');
 }
 
 function showTurnResults() {
@@ -173,3 +288,19 @@ function getRandomWord() {
   usedWords.push(randomWord);
   return randomWord;
 }
+
+// make sure drawing starts when user is ready to guess
+
+
+
+
+
+
+
+// function blankCanvas(){
+//   var canvas = document.getElementById('canvas1');
+//   var ctx = canvas.getContext('2d');
+//   ctx.fillStyle = 'black';
+//   ctx.fillRect(0,0, canvas.width, canvas.height);
+// }
+
