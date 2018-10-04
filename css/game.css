@@ -70,4 +70,6 @@ body{
 .isvisable{
     visibility: visible !important;
 }
-
+canvas{
+    background: black;
+}
