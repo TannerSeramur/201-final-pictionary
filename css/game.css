@@ -131,6 +131,7 @@ h1{
     background-image:src("https://media1.tenor.com/images/0a6b9cd28b21c42fbfef14442ad546ef/tenor.gif?itemid=8579522");
     color:#FFCD47 ;
 }
+
 h4{
     font-size: 3em;
     font-family: 'Ubuntu', sans-serif, bold;
@@ -187,6 +188,69 @@ img{
 #secretWord p{
     font-size: 3em;
     padding-bottom: 40px;
+}
+#winPop{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+#winPop h1{
+    padding-top: 100px;
+    font-size: 5em;
+    font-family: 'Ubuntu', sans-serif, bold;
+    margin-bottom: 30px;
+}
+#winPop{
+    display: flex;
+    flex-direction: column;
+}
+.newRoundBtn{
+    width: 300px;
+    height: 60px;
+    font-size: 3em;
+    border: none;
+    background-color: #FFCD47;
+    color: #2D5C81;
+    font-family: 'Ubuntu', sans-serif, bold;
+
+}
+
+#losePop{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+#losePop h1{
+    /* padding-top: 100px; */
+    font-size: 5em;
+    font-family: 'Ubuntu', sans-serif, bold;
+    margin-bottom: 10px;
+}
+#losePop p{
+    font-size: 2em;
+    font-family: 'Ubuntu', sans-serif, bold;
+    margin-bottom: 30px;
+
+}
+#losePop{
+    display: flex;
+    flex-direction: column;
 }
     
 
