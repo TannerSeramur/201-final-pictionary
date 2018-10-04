@@ -135,6 +135,12 @@ h1{
 }
     
 
-#canvas1{
-   
+#recordBtn{
+    visibility: hidden;  
+}
+#playBtn{
+    visibility: hidden;
+}
+#clearBtn{
+    visibility: hidden;
 }
