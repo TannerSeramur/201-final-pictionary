@@ -1,6 +1,7 @@
 // globals
 var game = getGameFromLocalStorage();
 getTeamsFromLocalStorage();
+var totalTime = 30000;
 
 function getGameFromLocalStorage() {
   var gameJSON = localStorage.getItem('game');
@@ -30,19 +31,58 @@ function timer() {
       width++;
       elem.style.width = width + '%';
     }
-    
-    
+     
   }
 }
+
+function blankCanvas(){
+  var canvas = document.getElementById('canvas1');
+  var ctx = canvas.getContext('2d');
+  ctx.fillStyle = 'black';
+  ctx.fillRect(0,0, canvas.width, canvas.height);
+}
+function endDrawPhase(){
+  blankCanvas();
+}
+
 var timerFinished = false;
-function startTimer(){
-  setTimeout(endPhase, 5000);
+var roundTimer; 
+function startDrawTimer(){
+  roundTimer = setTimeout(endDrawPhase, totalTime);
 }
-function endPhase(){
-  console.log('boom');
-  timerFinished = true;
-  return timerFinished;
+// function endDrawPhase();
+// {
+//   if(wordGuess){
+//     alert('you won');
+//     Game.teams[0].score++
+//   }
+//   else{
+//     alert('you lose');
+//   }
+// }
+
+function startGuessTimer(){
+  roundTimer = setTimeout(endGuessPhase, totalTime);
 }
+function endGuessPhase(){
+  if(wordGuess){
+    alert('you won');
+    Game.teams[0].score++
+  }
+  else{
+    alert('you lose');
+  }
+}
+
+
+
+
+
+
+
+
+
+
 
 var width = document.getElementById('myBar').width;
 console.log('here'+ document.getElementById('myBar').width);
@@ -56,7 +96,7 @@ function hideScreen(type){
 }
 function ready(){
   document.getElementById('pop4').classList.add('invisable');
-  startTimer();
+  startDrawTimer();
 
 
 }
@@ -83,6 +123,7 @@ function roleSwitch(){
   readyGuessBtn.addEventListener('click', readyGuess);
 }
 function readyGuess(){
+  startGuessTimer();
   event.preventDefault();
   console.log('readyGuess');
   document.getElementById('pop5').classList.remove('isvisable');
@@ -95,26 +136,21 @@ function readyGuess(){
 
 }
 
-
+var wordGuess = false;
 function setGuess(event){
   event.preventDefault();
   var userGuess = event.target.userGuess.value;
-  console.log(roundWord);
-  console.log(userGuess);
-  do{ 
-  
-    console.log(timerFinished);
-
     if(userGuess.toLowerCase() === roundWord ){
-      alert('Right!');
+      wordGuess = true;
+      clearTimeout(roundTimer);
+      endGuessPhase();
     }else if(userGuess.toLowerCase() != roundWord){
       var list = document.getElementById('guessList');
       var listItem = addElement('li',userGuess,list);
     }
-  }
-  while(timerFinished == false);
   
-  alert('timeout');
+  
+  
 
 
   // if(userGuess.toLowerCase() === roundWord ){
@@ -228,3 +264,12 @@ function getRandomWord() {
   usedWords.push(randomWord);
   return randomWord;
 }
+
+
+// function blankCanvas(){
+//   var canvas = document.getElementById('canvas1');
+//   var ctx = canvas.getContext('2d');
+//   ctx.fillStyle = 'black';
+//   ctx.fillRect(0,0, canvas.width, canvas.height);
+// }
+
