@@ -127,7 +127,8 @@ function showWord(){
   var secretWord = document.getElementById('secretWord');
   addElement('p','Your word is: ' + roundWord, secretWord);
   showWordBtn.removeEventListener('click', showWord);
-  var startDrawBtn = addElement('button', 'Draw!', secretWord);
+  var startDrawBtn = addElement('button', 'Start Drawing!', secretWord);
+  startDrawBtn.id = 'drawBtn';
   startDrawBtn.addEventListener('click', doDrawPhase);
 
 }

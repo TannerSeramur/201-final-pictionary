@@ -98,10 +98,10 @@ function startScript()
 
     drawing.startRecording();
     timer();
-    // console.log('start recording w/ timer');
-    setTimeout(function(){
-      stopRecording();
-    }, 30000);
+    // // console.log('start recording w/ timer');
+    // setTimeout(function(){
+    //   stopRecording();
+    // }, 30000);
 
 
     console.log('stop recording w/ timer');
