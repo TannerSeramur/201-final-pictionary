@@ -129,6 +129,7 @@ function startGuess(event){
   document.getElementById('pop5').classList.remove('isvisable');
   // Start the guess timer
   startGuessTimer();
+  timer();
   // Start canvas playback
   var canvasPlayBtn = document.getElementById('playBtn');
   canvasPlayBtn.click();
