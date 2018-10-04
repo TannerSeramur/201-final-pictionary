@@ -4,6 +4,7 @@ var pop2 = document.getElementById('pop2');
 var pop3 = document.getElementById('pop3');
 var pop4 = document.getElementById('pop4');
 var pop5 = document.getElementById('pop5');
+var winPop = document.getElementById('winPop');
 
 var myFunc = function(type){
   console.log(type);

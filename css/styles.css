@@ -32,14 +32,14 @@ body{
 
 .title h1{
   font-family: 'Ubuntu', sans-serif, bold;
-  font-size: 4em;
+  font-size: 5em;
   color: #fcc377;
 }
 
 #buttons-container{
   /* background-color:red; */
   width: 500px;
-  margin-top: 20px;
+  margin-top: 40px;
   display:flex;
   flex-direction: column;
   align-content: center;
@@ -49,13 +49,14 @@ body{
 
 .pop button{
   margin: 10px;
-  width: 150px;
-  height: 40px;
+  width: 250px;
+  height: 60px;
   border: none;
   background: #fcc377;
   color: black;
   border-radius: 10px;
   font-family: 'Ubuntu', sans-serif;
+  font-size: 1.5em;
 }
 
  /* modal styles here */
