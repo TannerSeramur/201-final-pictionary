@@ -2,25 +2,25 @@
 * Altered original code from Ram Kulkarni (http://ramkulkarni.com)
 */
 
-function startGuessTimer(){
-  roundTimer = setTimeout(endGuessPhase, 30000);
-}
+// function startGuessTimer(){
+//   roundTimer = setTimeout(endGuessPhase, 30000);
+// }
 var id;
-function timer() {
-  var elem = document.getElementById('myBar');
-  var width = 0;
-  id = setInterval(frame, 300);
-  function frame() {
-	  if (width == 100) {
-      clearInterval(id);
-	  }
-	  else {
-      width++;
-      elem.style.width = width + '%';
-    }
+// function timer() {
+//   var elem = document.getElementById('myBar');
+//   var width = 0;
+//   id = setInterval(frame, 300);
+//   function frame() {
+// 	  if (width == 100) {
+//       clearInterval(id);
+// 	  }
+// 	  else {
+//       width++;
+//       elem.style.width = width + '%';
+//     }
      
-  }
-}
+//   }
+// }
 
 function startScript()
 {
@@ -45,8 +45,8 @@ function startScript()
         startRecording();
         // setInterval(startRecording(), 300);
         // timer.width = 100;
-        console.log('elseeeee start');
-        startDrawTimer();
+        // console.log('elseeeee start');
+        // startDrawTimer();
       }
     });
 
@@ -97,14 +97,14 @@ function startScript()
     console.log('starting for 30 sec');
 
     drawing.startRecording();
-    timer();
+    // timer();
     // // console.log('start recording w/ timer');
     // setTimeout(function(){
     //   stopRecording();
     // }, 30000);
 
 
-    console.log('stop recording w/ timer');
+    // console.log('stop recording w/ timer');
     // stopRecording();
   }
 
@@ -116,7 +116,7 @@ function startScript()
   // export 
   function startPlayback()
   {
-    timer();
+    // timer();
     // startGuessTimer();
     drawing.playRecording(function() {
       //on playback start
