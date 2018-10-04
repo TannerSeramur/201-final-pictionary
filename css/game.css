@@ -184,6 +184,10 @@ img{
     margin-bottom: 40px;
     font-size: 2em;
 }
+#secretWord p{
+    font-size: 3em;
+    padding-bottom: 40px;
+}
     
 
 #recordBtn{
