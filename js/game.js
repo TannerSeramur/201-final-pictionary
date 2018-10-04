@@ -61,11 +61,10 @@ function endDrawPhase(){
   // Click the record button to toggle recording
   document.getElementById('recordBtn').click();
   console.log('Clicked canvas record button to stop recording');
-  // var canvasDoneBtn = document.getElementById('clearBtn');
-  // canvasDoneBtn.addEventListener('click', roleSwitch);
+  // Click the clear button to clear the canvas
   document.getElementById('clearBtn').click();
   console.log('Clicked clear button to clear canvas');
-
+  // Switch roles
   roleSwitch();
 }
 
@@ -84,9 +83,6 @@ function endGuessPhase(){
     alert('you lose');
   }
 }
-
-// var width = document.getElementById('myBar').width;
-// console.log('here'+ document.getElementById('myBar').width);
 
 // modal
 function hideScreen(type){
@@ -122,13 +118,13 @@ function showWord(){
 }
 
 function roleSwitch(){
+  // Show the guesser get ready modal and prepare the start guessing button
   document.getElementById('pop5').classList.add('isvisable');
   var startGuessBtn = document.getElementById('readyGuessBtn');
   startGuessBtn.addEventListener('click', startGuess);
 }
 
 function startGuess(event){
-  // event.preventDefault();
   // Hide the ready to guess modal
   document.getElementById('pop5').classList.remove('isvisable');
   // Start the guess timer
@@ -143,6 +139,7 @@ function startGuess(event){
   guessInput.id = 'userGuess';
   guessInput.name = 'userGuess';
   guessInput.placeholder = 'Enter your guess here';
+  guessInput.autofocus = 'autofocus';
   guessForm.addEventListener('submit', submitGuess);
 }
 
@@ -160,8 +157,9 @@ function submitGuess(event){
     var list = document.getElementById('guessList');
     var listItem = addElement('li',userGuess,list);
   }
-
-  console.log(timerFinished);
+  // Clear the input box
+  event.target.userGuess.value = '';
+  // console.log(timerFinished);
 }
 
 function getTeamsFromLocalStorage() {
