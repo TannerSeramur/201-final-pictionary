@@ -117,7 +117,7 @@ function startScript()
   function startPlayback()
   {
     timer();
-    startGuessTimer();
+    // startGuessTimer();
     drawing.playRecording(function() {
       //on playback start
       $('#playBtn').prop('value','Stop');

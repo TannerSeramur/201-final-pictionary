@@ -18,10 +18,6 @@ function addElement(element, content, parent) {
   return newElement;
 }
 
-
-
-// && document.getElementById('myBar').style.width != '100%'
-// document.getElementById('myBar').style.width;
 var id;
 function timer() {
   var elem = document.getElementById('myBar');
@@ -39,8 +35,8 @@ function timer() {
   }
 }
 
-var doneBtn = document.getElementById('clearBtn');
-doneBtn.addEventListener('click', checkBlank);
+// var canvasDoneBtn = document.getElementById('clearBtn');
+// canvasDoneBtn.addEventListener('click', checkBlank);
 
 // turns canvas back
 function blankCanvas(){
@@ -49,10 +45,10 @@ function blankCanvas(){
   ctx.fillStyle = 'black';
   ctx.fillRect(0,0, canvas.width, canvas.height);
 }
-var blank = false;
-function checkBlank(){
-  blank = true;
-}
+// var blank = false;
+// function checkBlank(){
+//   blank = true;
+// }
 
 
 
@@ -67,21 +63,13 @@ function startDrawTimer(){
 
 function endDrawPhase(){
   blankCanvas();
-  var doneBtn = document.getElementById('clearBtn');
-  doneBtn.addEventListener('click', roleSwitch);
-  doneBtn.click();
+  var canvas = document.getElementById('canvas1');
+  canvas.mouseDown = false;
+  var canvasDoneBtn = document.getElementById('clearBtn');
+  canvasDoneBtn.addEventListener('click', roleSwitch);
+  canvasDoneBtn.click();
+  console.log('**Clicked canvas done button');
 }
-
-// function endDrawPhase();
-// {
-//   if(wordGuessed){
-//     alert('you won');
-//     Game.teams[0].score++
-//   }
-//   else{
-//     alert('you lose');
-//   }
-// }
 
 // timer for guessing the drawing
 function startGuessTimer(){
@@ -116,6 +104,7 @@ function doDrawPhase(){
   // Get the recordBtn and click it to allow drawing
   var recordBtn = document.getElementById('recordBtn');
   recordBtn.click();
+  console.log('Clicked canvas record button');
 }
 
 var showWordBtn = document.getElementById('showWord');
@@ -128,6 +117,7 @@ function showWord(){
   addElement('p','Your word is: ' + roundWord, secretWord);
   showWordBtn.removeEventListener('click', showWord);
   var startDrawBtn = addElement('button', 'Draw!', secretWord);
+  startDrawBtn.id = 'startDrawBtn';
   startDrawBtn.addEventListener('click', doDrawPhase);
 
 }
@@ -145,27 +135,28 @@ function readyGuess(event){
   // Start the guess timer
   startGuessTimer();
   // Start canvas playback
-  var playBtn = document.getElementById('playBtn');
-  playBtn.click();
-  // Set up the guess input field form
+  var canvasPlayBtn = document.getElementById('playBtn');
+  canvasPlayBtn.click();
+  console.log('Clicked canvas play button');
+  // Set up the guess input field form to allow guesses
   var guessForm = document.getElementById('guessInput');
   var guessInput = addElement('input', '', guessForm);
   guessInput.id = 'userGuess';
   guessInput.name = 'userGuess';
   guessInput.placeholder = 'Enter your guess here';
-  guessForm.addEventListener('submit',setGuess);
+  guessForm.addEventListener('submit', submitGuess);
 }
 
 var wordGuessed = false;
 
-function setGuess(event){
+function submitGuess(event){
   // We get here on submit from guess text field
   event.preventDefault();
   // Compare the guessed word to roundWord
   var userGuess = event.target.userGuess.value;
   if(userGuess.toLowerCase() === roundWord ){
     wordGuessed = true;
-    alert('right');
+    // alert('right');
     clearTimeout(roundTimer);
     endGuessPhase();
   }else if(userGuess.toLowerCase() !== roundWord){
@@ -173,19 +164,7 @@ function setGuess(event){
     var listItem = addElement('li',userGuess,list);
   }
 
-
-
-
-
-
-  // if(userGuess.toLowerCase() === roundWord ){
-  //   alert('Right!');
-  // }else if(userGuess.toLowerCase() != roundWord){
-  //   var list = document.getElementById('guessList');
-  //   var listItem = addElement('li',userGuess,list);
-  // }
   console.log(timerFinished);
-
 }
 
 function getTeamsFromLocalStorage() {
