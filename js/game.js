@@ -11,12 +11,12 @@ function getGameFromLocalStorage() {
   return new Game(gameJSON['maxRounds']);
 }
 function addElement(element, content, parent) {
-    var newElement = document.createElement(element);
-    var newContent = document.createTextNode(content);
-    newElement.appendChild(newContent);
-    parent.appendChild(newElement);
-    return newElement;
-  }
+  var newElement = document.createElement(element);
+  var newContent = document.createTextNode(content);
+  newElement.appendChild(newContent);
+  parent.appendChild(newElement);
+  return newElement;
+}
 
 
 
@@ -35,14 +35,14 @@ function timer() {
       width++;
       elem.style.width = width + '%';
     }
-     
+
   }
 }
 
 var doneBtn = document.getElementById('clearBtn');
 doneBtn.addEventListener('click', checkBlank);
 
-// turns canvas back 
+// turns canvas back
 function blankCanvas(){
   var canvas = document.getElementById('canvas1');
   var ctx = canvas.getContext('2d');
@@ -57,7 +57,7 @@ function checkBlank(){
 
 
 var timerFinished = false;
-var roundTimer; 
+var roundTimer;
 
 // drawing timer
 function startDrawTimer(){
@@ -91,7 +91,7 @@ function startGuessTimer(){
 function endGuessPhase(){
   if(wordGuessed){
     alert('you won');
-    Game.teams[0].score++
+    Game.teams[0].score++;
   }
   else{
     alert('you lose');
@@ -129,7 +129,7 @@ function showWord(){
   showWordBtn.removeEventListener('click', showWord);
   var startDrawBtn = addElement('button', 'Draw!', secretWord);
   startDrawBtn.addEventListener('click', doDrawPhase);
-  
+
 }
 
 function roleSwitch(){
@@ -139,16 +139,15 @@ function roleSwitch(){
 }
 
 function readyGuess(event){
-  event.preventDefault();  
+  event.preventDefault();
   // Hide the ready to guess modal
   document.getElementById('pop5').classList.remove('isvisable');
-  // Start the guess timer  
+  // Start the guess timer
   startGuessTimer();
-
-
-  console.log('readyGuess');
-
-
+  // Start canvas playback
+  var playBtn = document.getElementById('playBtn');
+  playBtn.click();
+  // Set up the guess input field form
   var guessForm = document.getElementById('guessInput');
   var guessInput = addElement('input', '', guessForm);
   guessInput.id = 'userGuess';
@@ -164,19 +163,19 @@ function setGuess(event){
   event.preventDefault();
   // Compare the guessed word to roundWord
   var userGuess = event.target.userGuess.value;
-    if(userGuess.toLowerCase() === roundWord ){
-      wordGuessed = true;
-      alert("right");
-      clearTimeout(roundTimer);
-      endGuessPhase();
-    }else if(userGuess.toLowerCase() !== roundWord){
-      var list = document.getElementById('guessList');
-      var listItem = addElement('li',userGuess,list);
-    }
+  if(userGuess.toLowerCase() === roundWord ){
+    wordGuessed = true;
+    alert('right');
+    clearTimeout(roundTimer);
+    endGuessPhase();
+  }else if(userGuess.toLowerCase() !== roundWord){
+    var list = document.getElementById('guessList');
+    var listItem = addElement('li',userGuess,list);
+  }
 
 
-  
-  
+
+
 
 
   // if(userGuess.toLowerCase() === roundWord ){
