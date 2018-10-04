@@ -2,8 +2,10 @@
 * Altered original code from Ram Kulkarni (http://ramkulkarni.com)
 */
 
+function startGuessTimer(){
+  roundTimer = setTimeout(endGuessPhase, 30000);
+}
 var id;
-
 function timer() {
   var elem = document.getElementById('myBar');
   var width = 0;
@@ -15,9 +17,9 @@ function timer() {
 	  else {
       width++;
       elem.style.width = width + '%';
-	  }
+    }
+     
   }
-  return id;
 }
 
 function startScript()
@@ -44,6 +46,7 @@ function startScript()
         // setInterval(startRecording(), 300);
         // timer.width = 100;
         console.log('elseeeee start');
+        startDrawTimer();
       }
     });
 
@@ -86,6 +89,7 @@ function startScript()
 
   function startRecording()
   {
+    
     $('#recordBtn').prop('value','Stop');
     $('#playBtn').hide();
     $('#pauseBtn').hide();
@@ -108,9 +112,12 @@ function startScript()
   {
     playbackInterruptCommand = 'stop';
   }
-
+  
+  // export 
   function startPlayback()
   {
+    timer();
+    startGuessTimer();
     drawing.playRecording(function() {
       //on playback start
       $('#playBtn').prop('value','Stop');
@@ -136,6 +143,7 @@ function startScript()
       return playbackInterruptCommand;
     });
   }
+
 
   function pausePlayback()
   {
@@ -173,12 +181,15 @@ RecordableDrawing = function (canvasId)
 
   onMouseDown = function(event)
   {
+    // startRecording();
+    drawing.startRecording();
     var canvasX = $(self.canvas).offset().left;
     var canvasY = $(self.canvas).offset().top;
 
     self.mouseDown = true;
     var x = Math.floor(event.pageX - canvasX);
     var y = Math.floor(event.pageY - canvasY);
+
 
     var	currAction = new Point(x,y,0);
     self.drawAction(currAction,true);
