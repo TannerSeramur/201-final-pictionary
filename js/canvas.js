@@ -2,25 +2,23 @@
 * Altered original code from Ram Kulkarni (http://ramkulkarni.com)
 */
 
-// function startGuessTimer(){
-//   roundTimer = setTimeout(endGuessPhase, 30000);
-// }
 var id;
-// function timer() {
-//   var elem = document.getElementById('myBar');
-//   var width = 0;
-//   id = setInterval(frame, 300);
-//   function frame() {
-// 	  if (width == 100) {
-//       clearInterval(id);
-// 	  }
-// 	  else {
-//       width++;
-//       elem.style.width = width + '%';
-//     }
-     
-//   }
-// }
+
+function timer() {
+  var elem = document.getElementById('myBar');
+  var width = 0;
+  id = setInterval(frame, 300);
+  function frame() {
+	  if (width == 100) {
+      clearInterval(id);
+	  }
+	  else {
+      width++;
+      elem.style.width = width + '%';
+	  }
+  }
+  return id;
+}
 
 function startScript()
 {
@@ -45,8 +43,7 @@ function startScript()
         startRecording();
         // setInterval(startRecording(), 300);
         // timer.width = 100;
-        // console.log('elseeeee start');
-        // startDrawTimer();
+        console.log('elseeeee start');
       }
     });
 
@@ -89,7 +86,6 @@ function startScript()
 
   function startRecording()
   {
-    
     $('#recordBtn').prop('value','Stop');
     $('#playBtn').hide();
     $('#pauseBtn').hide();
@@ -97,14 +93,14 @@ function startScript()
     console.log('starting for 30 sec');
 
     drawing.startRecording();
-    // timer();
-    // // console.log('start recording w/ timer');
-    // setTimeout(function(){
-    //   stopRecording();
-    // }, 30000);
+    timer();
+    // console.log('start recording w/ timer');
+    setTimeout(function(){
+      stopRecording();
+    }, 30000);
 
 
-    // console.log('stop recording w/ timer');
+    console.log('stop recording w/ timer');
     // stopRecording();
   }
 
@@ -112,12 +108,9 @@ function startScript()
   {
     playbackInterruptCommand = 'stop';
   }
-  
-  // export 
+
   function startPlayback()
   {
-    // timer();
-    // startGuessTimer();
     drawing.playRecording(function() {
       //on playback start
       $('#playBtn').prop('value','Stop');
@@ -143,7 +136,6 @@ function startScript()
       return playbackInterruptCommand;
     });
   }
-
 
   function pausePlayback()
   {
@@ -181,15 +173,12 @@ RecordableDrawing = function (canvasId)
 
   onMouseDown = function(event)
   {
-    // startRecording();
-    drawing.startRecording();
     var canvasX = $(self.canvas).offset().left;
     var canvasY = $(self.canvas).offset().top;
 
     self.mouseDown = true;
     var x = Math.floor(event.pageX - canvasX);
     var y = Math.floor(event.pageY - canvasY);
-
 
     var	currAction = new Point(x,y,0);
     self.drawAction(currAction,true);
