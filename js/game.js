@@ -5,11 +5,16 @@
 var game = getGameFromLocalStorage();
 getTeamsFromLocalStorage();
 var totalTime = 30000;
+var roundWord = getRandomWord();
+var timerFinished = false;
+var roundTimer;
+var wordGuessed = false;
 
 function getGameFromLocalStorage() {
   var gameJSON = localStorage.getItem('game');
   return new Game(gameJSON['maxRounds']);
 }
+
 function addElement(element, content, parent) {
   var newElement = document.createElement(element);
   var newContent = document.createTextNode(content);
@@ -24,7 +29,7 @@ function timer() {
   var width = 0;
   id = setInterval(frame, 300);
   function frame() {
-	  if (width == 100) {
+	  if (width === 100) {
       clearInterval(id);
 	  }
 	  else {
@@ -35,9 +40,6 @@ function timer() {
   }
 }
 
-// var canvasDoneBtn = document.getElementById('clearBtn');
-// canvasDoneBtn.addEventListener('click', checkBlank);
-
 // turns canvas back
 function blankCanvas(){
   var canvas = document.getElementById('canvas1');
@@ -45,34 +47,30 @@ function blankCanvas(){
   ctx.fillStyle = 'black';
   ctx.fillRect(0,0, canvas.width, canvas.height);
 }
-// var blank = false;
-// function checkBlank(){
-//   blank = true;
-// }
-
-
-
-var timerFinished = false;
-var roundTimer;
 
 // drawing timer
 function startDrawTimer(){
+  // Start the progresss bar timer
+  timer();
   // start the round timer and call endDrawPhase when time is up
   roundTimer = setTimeout(endDrawPhase, totalTime);
 }
 
 function endDrawPhase(){
   blankCanvas();
-  var canvas = document.getElementById('canvas1');
-  canvas.mouseDown = false;
-  var canvasDoneBtn = document.getElementById('clearBtn');
-  canvasDoneBtn.addEventListener('click', roleSwitch);
-  canvasDoneBtn.click();
-  console.log('**Clicked canvas done button');
+  // Click the record button to toggle recording
+  document.getElementById('recordBtn').click();
+  console.log('Clicked canvas record button to stop recording');
+  // Click the clear button to clear the canvas
+  document.getElementById('clearBtn').click();
+  console.log('Clicked clear button to clear canvas');
+  // Switch roles
+  roleSwitch();
 }
 
 // timer for guessing the drawing
 function startGuessTimer(){
+  timer();
   roundTimer = setTimeout(endGuessPhase, totalTime);
 }
 
@@ -85,9 +83,6 @@ function endGuessPhase(){
     showLose();
   }
 }
-
-// var width = document.getElementById('myBar').width;
-// console.log('here'+ document.getElementById('myBar').width);
 
 // modal
 function hideScreen(type){
@@ -110,8 +105,6 @@ function doDrawPhase(){
 var showWordBtn = document.getElementById('showWord');
 showWordBtn.addEventListener('click', showWord);
 
-var roundWord = getRandomWord();
-
 function showWord(){
   var secretWord = document.getElementById('secretWord');
   addElement('p','Your word is: ' + roundWord, secretWord);
@@ -125,13 +118,13 @@ function showWord(){
 }
 
 function roleSwitch(){
+  // Show the guesser get ready modal and prepare the start guessing button
   document.getElementById('pop5').classList.add('isvisable');
-  var readyGuessBtn = document.getElementById('readyGuessBtn');
-  readyGuessBtn.addEventListener('click', readyGuess);
+  var startGuessBtn = document.getElementById('readyGuessBtn');
+  startGuessBtn.addEventListener('click', startGuess);
 }
 
-function readyGuess(event){
-  event.preventDefault();
+function startGuess(event){
   // Hide the ready to guess modal
   document.getElementById('pop5').classList.remove('isvisable');
   // Start the guess timer
@@ -146,10 +139,9 @@ function readyGuess(event){
   guessInput.id = 'userGuess';
   guessInput.name = 'userGuess';
   guessInput.placeholder = 'Enter your guess here';
+  guessInput.autofocus = 'autofocus';
   guessForm.addEventListener('submit', submitGuess);
 }
-
-var wordGuessed = false;
 
 function submitGuess(event){
   // We get here on submit from guess text field
@@ -165,8 +157,9 @@ function submitGuess(event){
     var list = document.getElementById('guessList');
     var listItem = addElement('li',userGuess,list);
   }
-
-  console.log(timerFinished);
+  // Clear the input box
+  event.target.userGuess.value = '';
+  // console.log(timerFinished);
 }
 
 function getTeamsFromLocalStorage() {
@@ -176,6 +169,7 @@ function getTeamsFromLocalStorage() {
     new Team(jsonTeam['teamName']);
   }
 }
+
 
 function playGame() {
   // loop over the number of rounds in our game
@@ -238,6 +232,7 @@ function showEndOfGameResults() {
   // TODO: display end of game results
 }
 
+
 function getRandomWord() {
   var randomWord = '';
   do {
@@ -248,10 +243,3 @@ function getRandomWord() {
   usedWords.push(randomWord);
   return randomWord;
 }
-
-// function blankCanvas(){
-//   var canvas = document.getElementById('canvas1');
-//   var ctx = canvas.getContext('2d');
-//   ctx.fillStyle = 'black';
-//   ctx.fillRect(0,0, canvas.width, canvas.height);
-// }
