@@ -5,11 +5,16 @@
 var game = getGameFromLocalStorage();
 getTeamsFromLocalStorage();
 var totalTime = 30000;
+var roundWord = getRandomWord();
+var timerFinished = false;
+var roundTimer;
+var wordGuessed = false;
 
 function getGameFromLocalStorage() {
   var gameJSON = localStorage.getItem('game');
   return new Game(gameJSON['maxRounds']);
 }
+
 function addElement(element, content, parent) {
   var newElement = document.createElement(element);
   var newContent = document.createTextNode(content);
@@ -24,7 +29,7 @@ function timer() {
   var width = 0;
   id = setInterval(frame, 300);
   function frame() {
-	  if (width == 100) {
+	  if (width === 100) {
       clearInterval(id);
 	  }
 	  else {
@@ -35,9 +40,6 @@ function timer() {
   }
 }
 
-// var canvasDoneBtn = document.getElementById('clearBtn');
-// canvasDoneBtn.addEventListener('click', checkBlank);
-
 // turns canvas back
 function blankCanvas(){
   var canvas = document.getElementById('canvas1');
@@ -45,34 +47,31 @@ function blankCanvas(){
   ctx.fillStyle = 'black';
   ctx.fillRect(0,0, canvas.width, canvas.height);
 }
-// var blank = false;
-// function checkBlank(){
-//   blank = true;
-// }
-
-
-
-var timerFinished = false;
-var roundTimer;
 
 // drawing timer
 function startDrawTimer(){
+  // Start the progresss bar timer
+  timer();
   // start the round timer and call endDrawPhase when time is up
   roundTimer = setTimeout(endDrawPhase, totalTime);
 }
 
 function endDrawPhase(){
   blankCanvas();
-  var canvas = document.getElementById('canvas1');
-  canvas.mouseDown = false;
-  var canvasDoneBtn = document.getElementById('clearBtn');
-  canvasDoneBtn.addEventListener('click', roleSwitch);
-  canvasDoneBtn.click();
-  console.log('**Clicked canvas done button');
+  // Click the record button to toggle recording
+  document.getElementById('recordBtn').click();
+  console.log('Clicked canvas record button to stop recording');
+  // var canvasDoneBtn = document.getElementById('clearBtn');
+  // canvasDoneBtn.addEventListener('click', roleSwitch);
+  document.getElementById('clearBtn').click();
+  console.log('Clicked clear button to clear canvas');
+
+  roleSwitch();
 }
 
 // timer for guessing the drawing
 function startGuessTimer(){
+  timer();
   roundTimer = setTimeout(endGuessPhase, totalTime);
 }
 
@@ -110,8 +109,6 @@ function doDrawPhase(){
 var showWordBtn = document.getElementById('showWord');
 showWordBtn.addEventListener('click', showWord);
 
-var roundWord = getRandomWord();
-
 function showWord(){
   var secretWord = document.getElementById('secretWord');
   addElement('p','Your word is: ' + roundWord, secretWord);
@@ -126,12 +123,12 @@ function showWord(){
 
 function roleSwitch(){
   document.getElementById('pop5').classList.add('isvisable');
-  var readyGuessBtn = document.getElementById('readyGuessBtn');
-  readyGuessBtn.addEventListener('click', readyGuess);
+  var startGuessBtn = document.getElementById('readyGuessBtn');
+  startGuessBtn.addEventListener('click', startGuess);
 }
 
-function readyGuess(event){
-  event.preventDefault();
+function startGuess(event){
+  // event.preventDefault();
   // Hide the ready to guess modal
   document.getElementById('pop5').classList.remove('isvisable');
   // Start the guess timer
@@ -148,8 +145,6 @@ function readyGuess(event){
   guessInput.placeholder = 'Enter your guess here';
   guessForm.addEventListener('submit', submitGuess);
 }
-
-var wordGuessed = false;
 
 function submitGuess(event){
   // We get here on submit from guess text field
@@ -177,59 +172,6 @@ function getTeamsFromLocalStorage() {
   }
 }
 
-function playGame() {
-  // loop over the number of rounds in our game
-  for (let round = 1; round <= game.maxRounds; round++) {
-    // Do start round things here
-    startRound();
-    // each round, loop over the number of teams in our game
-    for (let currentTeam = 0; currentTeam < Game.teams.length; currentTeam++) {
-      // Do start turn things here
-      doTurn(Game.teams[currentTeam]);
-    }
-  }
-  // Game is done. Show results.
-  showEndOfGameResults();
-}
-
-function startRound() {
-
-}
-
-// turn start here
-function doTurn(currentTeam) {
-  // Accepts a team object as parameter
-  promptDrawer();
-  startDraw();
-  promptGuesser();
-  startGuessing();
-  showTurnResults();
-}
-
-function promptDrawer() {
-  // TODO: do the prompt
-}
-
-function startDraw() {
-  // TODO: run drawing code
-}
-
-function promptGuesser() {
-  // TODO: show the prompt
-}
-
-function startGuessing() {
-  console.log('hi');
-}
-
-function showTurnResults() {
-  // TODO: display end of turn results
-}
-
-function showEndOfGameResults() {
-  // TODO: display end of game results
-}
-
 function getRandomWord() {
   var randomWord = '';
   do {
@@ -240,10 +182,3 @@ function getRandomWord() {
   usedWords.push(randomWord);
   return randomWord;
 }
-
-// function blankCanvas(){
-//   var canvas = document.getElementById('canvas1');
-//   var ctx = canvas.getContext('2d');
-//   ctx.fillStyle = 'black';
-//   ctx.fillRect(0,0, canvas.width, canvas.height);
-// }
