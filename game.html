@@ -4,12 +4,14 @@
   <head>
       <link rel="stylesheet" href="css/reset.css">
       <link rel="stylesheet" href="css/game.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
       <script type="text/javascript" src="http://ramkulkarni.com/temp/2012-10-03/js/lib/jquery-1.7.2.js"></script>
       <script type="text/javascript" src="js/canvas.js"></script>
       <script type="text/javascript">startScript();</script>
   </head>
   <body>
     <header>
+      <nav><h1>Pictionary!</h1></nav>
     </header>
     <main>
       <div class = "modal-container">
@@ -36,9 +38,8 @@
 
       </div>
       <div class="content-container">
-      <h1>Pictionary</h1>
       <p><span id="more-464"></span><br />
-        <canvas id="canvas1" style="border: medium; border-color:brown; border-style: solid;" width="500" height="400">   </canvas><br />
+        <canvas id="canvas1" style="border: medium; border-color:#2d5c81; border-style: solid;" width="800" height="500">   </canvas><br />
         <input id="recordBtn" type="button" value="Start" /> 
         <input id="playBtn" type="button" value="Play" /> 
         <!-- <input id="pauseBtn" type="button" value="Pause" />  -->
@@ -48,11 +49,15 @@
           <div id="myBar"></div>
         </div>
 
-        <form action="" id = "guessInput">
-        </form>
-        <ul id = 'guessList'>
-          <li>Incorect Guesses:</li>
-        </ul>
+        <div class = "guess-container">
+          <form action="" id = "guessInput">
+          </form>
+          <ul id = 'guessList'>
+            <h3>Incorect Guesses:</h3>
+          </ul>
+        </div>
+        
+      </div>
 
       </div>
       
