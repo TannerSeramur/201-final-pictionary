@@ -78,11 +78,11 @@ function startGuessTimer(){
 
 function endGuessPhase(){
   if(wordGuessed){
-    alert('you won');
+    showWin();
     Game.teams[0].score++;
   }
   else{
-    alert('you lose');
+    showLose();
   }
 }
 
@@ -195,6 +195,14 @@ function playGame() {
 function startRound() {
 
 }
+
+function showWin(){
+  document.getElementById('winPop').classList.add('isvisable');
+}
+function showLose(){
+  document.getElementById('losePop').classList.add('isvisable');
+}
+
 
 // turn start here
 function doTurn(currentTeam) {
