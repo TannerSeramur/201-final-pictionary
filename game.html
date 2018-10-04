@@ -18,7 +18,9 @@
             <div class="pop"></div>
                         
             <div class="popup-container" id= "pop4" onclick="hideScreen('pop4')">
-                <div class="popup"><p>Make sure the person drawing is the only one looking at the screen.</p>
+                <div class="popup">
+                  <h4>Drawer Get Ready!</h4>
+                  <p>Make sure the person drawing is the only one looking at the screen.</p>
                   <button id = "showWord"> OK </button>
                   <div id = "secretWord"></div>
                     <!-- text goes here--></div>
@@ -26,11 +28,15 @@
 
             <div id= "pop5">
               <div class="popup">
-                <div id = "roleSwitch"></div>
-                <p>Now give the screen to the guessers!</p>
-                <button id = "readyGuessBtn">Ready!</button> 
+                <div id = "roleSwitch">
+                  <h4>Guessers Get Ready!</h4>
+                  <h5>Now give the screen to the guessers!</h5>
+                  <p>Remember the timer starts as soon as you hit ready</p>
+                  <img src="image/guess-emoji.png" alt="Guess Emoji" width="25%" height="25%">
+                  <br>
+                  <button id = "readyGuessBtn">Ready!</button> 
 
-                  <!-- text goes here--></div>
+                </div>
           </div>
 
 
@@ -53,7 +59,7 @@
           <form action="" id = "guessInput">
           </form>
           <ul id = 'guessList'>
-            <h3>Incorect Guesses:</h3>
+            <h3>Incorrect Guesses:</h3>
           </ul>
         </div>
         

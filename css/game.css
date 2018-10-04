@@ -98,7 +98,7 @@ h1{
 
 }
 .popup{
-    background-color:orange;
+    background-color:#2D5C81;
     width: 60vw;
     height: 70vh;
     padding: 30px;
@@ -129,9 +129,60 @@ h1{
 
 .modal-container {
     background-image:src("https://media1.tenor.com/images/0a6b9cd28b21c42fbfef14442ad546ef/tenor.gif?itemid=8579522");
-    color:brown ;
-    font-size: 30px;
-    font-style: italic;
+    color:#FFCD47 ;
+}
+h4{
+    font-size: 3em;
+    font-family: 'Ubuntu', sans-serif, bold;
+    margin-bottom: 30px;
+}
+.popup p{
+    font-size: 1.5em;
+    font-family: 'Ubuntu', sans-serif, bold;
+}
+#showWord{
+    margin-top: 40px;
+    width: 150px;
+    height: 40px;
+    border: none;
+    background-color: #FFCD47;
+    font-family: 'Ubuntu', sans-serif, bold;
+    margin-bottom: 40px;
+}
+#drawBtn{
+    margin-top: 40px;
+    width: 500px;
+    height: 100px;
+    border: none;
+    background-color: #FFCD47;
+    font-family: 'Ubuntu', sans-serif, bold;
+    margin-bottom: 40px;
+    font-size: 2em;
+}
+h5{
+    font-size: 2em;
+    font-family: 'Ubuntu', sans-serif, bold;
+    margin-bottom: 30px;
+}
+
+#roleSwitch p{
+    font-size: 1.5em;
+    font-family: 'Ubuntu', sans-serif, bold;
+    padding-bottom: 25px;
+    /* background-color: red; */
+}
+img{
+    margin-bottom: 25px;
+}
+#readyGuessBtn{
+    /* margin-top: 200px; */
+    width: 500px;
+    height: 100px;
+    border: none;
+    background-color: #FFCD47;
+    font-family: 'Ubuntu', sans-serif, bold;
+    margin-bottom: 40px;
+    font-size: 2em;
 }
     
 
