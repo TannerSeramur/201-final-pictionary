@@ -1,9 +1,9 @@
 body{
     width: 100%;
     height: 100%;
-    background-color:#53787D;
-   }
-
+    background-color:orange;
+    background-image:url(http://images.clipartpanda.com/stick-man-thinking-stickman-question-mark-thinking-12720187.jpg);
+}
    main{
        width: 100vw;
        /* background-color:red; */
@@ -19,6 +19,7 @@ body{
     height: 30px;
     position: relative;
     background-color: #ddd;
+    
     margin-top: 20px;
 }    
 #myBar {
@@ -44,11 +45,13 @@ body{
 
 }
 .popup{
-    background-color: #f2f2f2;
+    background-color:orange;
     width: 60vw;
-    height: 90vh;
+    height: 70vh;
     padding: 30px;
     z-index: 100;
+    text-align: center
+
 }
 
 .invisable{
@@ -70,4 +73,10 @@ body{
 .isvisable{
     visibility: visible !important;
 }
-
+.modal-container {
+    background-image:url("https://media1.tenor.com/images/0a6b9cd28b21c42fbfef14442ad546ef/tenor.gif?itemid=8579522");
+    color:brown ;
+    font-size: 30px;
+    font-style: italic;
+    
+}
