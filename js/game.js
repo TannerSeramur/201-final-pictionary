@@ -127,6 +127,8 @@ function roleSwitch(){
 }
 
 function startGuess(event){
+  // add guess list
+  addIncorrectGuesses();
   // Hide the ready to guess modal
   document.getElementById('pop5').classList.remove('isvisable');
   // Start the guess timer
@@ -171,6 +173,10 @@ function getTeamsFromLocalStorage() {
     console.log('jsonTeam=', jsonTeam);
     new Team(jsonTeam['teamName']);
   }
+}
+function addIncorrectGuesses(){
+  var incorrectGuess = document.getElementById('guessList');
+  var listHead = addElement('h3','Incorrect Guesses: ', incorrectGuess);
 }
 
 
