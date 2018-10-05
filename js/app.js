@@ -90,18 +90,24 @@ function renderTeams() {
   var teamsList = document.getElementById('teams');
   teamsList.innerHTML = '';
   for (let i = 0; i < Game.teams.length; i++) {
+    // Make a new li
     var newLi = document.createElement('li');
+    // Make a new div to wrap p and btn
+    var liContainer = document.createElement('div');
+    liContainer.classList.add('team-list-item');
+    // Make a new p
     var newP = document.createElement('p');
+    // Set text in new p
     newP.textContent = Game.teams[i].teamName;
-    // newLi.textContent = Game.teams[i].teamName;
-    newLi.appendChild(newP);
-    // var newI = document.createElement('i');
-    // newI.setAttribute('class', 'fas fa-times-circle');
+    // Stick newP in container
+    liContainer.appendChild(newP);
+    // Stick container in the li
+    newLi.appendChild(liContainer);
+    // Make a remove button and stick to the liContainer
     var removeButton = document.createElement('button');
     removeButton.setAttribute('class', 'fas fa-times-circle');
     removeButton.addEventListener('click', removeTeam);
-    // newLi.appendChild(newI);
-    newLi.appendChild(removeButton);
+    liContainer.appendChild(removeButton);
     teamsList.appendChild(newLi);
   }
 }
