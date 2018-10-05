@@ -196,3 +196,15 @@ h2 {
 .button:hover {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
+.team-list-item{
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0px;
+}
+.fas.fa-times-circle{
+  border: none;
+  background-color: #fcc377;
+}
+.fa-times-circle{
+  font-size: 1em;
+}
