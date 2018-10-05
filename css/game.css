@@ -34,15 +34,17 @@ nav{
     width: 100vw;
     height: 40px;
     background-color: #2D5C81;
-    text-align: center;
     color: #FFCD47;
+}
+.navText{
+    width: 95vw;
+    text-align: center;
 }
 h1{
     font-family: 'Ubuntu', sans-serif, bold;
     font-size: 1.8em;
     padding-top: 4px;
-    /* margin-top: 5px; */
-    /* margin: 0 auto; */
+    left: -20px;
 }
 #guessList{
     margin-top: 20px;
@@ -272,3 +274,11 @@ img{
 #drawBtn:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   }
+  i{
+      float: left;
+      color: #FFCD47;
+      margin-top: 7px;
+      padding-left:15px;
+      opacity: .8;
+  }
+
