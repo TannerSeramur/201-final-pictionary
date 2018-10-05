@@ -14,3 +14,18 @@
 * Added event listeners/handlers to manipulate the behaivior of the site.
 * Picked a color scheme to be our style to use for the rest of our project.
 * Demonstrated to instructors our demo.
+
+## Day 3 (Wednesday)
+* Implemented the team select page
+* Implemented the code to show and hide content divs
+* Started grouping loose code into functions
+* Got basic timing functionality working
+* Demonstrated MVP to John at the end of the day
+
+
+## Day 4 (Thursday)
+* Made changes to the way the timers work
+* Troubleshooting bugs
+* Improved styling and polish
+* Reached code completion in the afternoon
+* Did practice demo for TA's
