@@ -82,9 +82,25 @@ body{
   padding: 30px;
   min-width: 550px;
   z-index: 100;
-  color:brown;
+  /* color:#2D5C81; */
   font-style: italic;
   font-size:15px;
+  display:flex;
+  justify-content: center;
+}
+.instructions{
+  background-color:#fcc377;
+  max-width: 600px;
+  padding: 30px;
+  min-width: 550px;
+  z-index: 100;
+  color:brown;
+  font-family: 'Ubuntu', sans-serif, bold;
+  font-size:1.3em;
+}
+.instructions p{
+  margin: 10px;
+  line-height: 1.2;
 }
 
 .popup input[type = submit]{
@@ -102,9 +118,68 @@ body{
 }
 h2 {
   color:rgb(214, 89, 44);
-  font-style: bold;
-  font-size:40px;
+  font-family: 'Ubuntu', sans-serif, bold;
+  font-size:3em;
+  margin-bottom: 15px;
+  }
+  .instructions h2{
+    font-size: 2.5em;
+    padding-bottom: 5px;
+    border-bottom:rgb(214, 89, 44) 5px solid;
+
+  }
+  .scoresPopup{
+    background-color:#fcc377;
+    padding: 40px;
+  }
+  .table th{
+    font-family: 'Ubuntu', sans-serif, bold;
+    color: rgb(214, 89, 44);
+    font-size: 1.8em;
+    padding: 0px 30px;
+  }
+  .table td{
+    font-family: 'Ubuntu', sans-serif, bold;
+    color: rgb(214, 89, 44);
+    font-size: 1.4em;
+    padding: 5px 30px;
+
+  }
+
+  #add-team-input{
+    background-color: #f1f1f1;
+    border: none;
+    width: 80%;
+    height: 25px;
+    border-radius: 10px;
+    padding: 0px 10px;
+  }
+  .addTeam{
+    display: flex;
+    justify-content: space-between;
+  }
+  .start-content{
+    width: 50%; 
+  }
+  #add-team-button{
+    border: none;
+    background-color:#fcc377;
+  }
+  #play-button{
+    border: none;
+    background-color: #2D5C81;
+    width: 100%;
+    height: 30px;
+    margin-top: 10px;
+    font-family: 'Ubuntu', sans-serif, bold;
+    color: #f1f1f1;
+    font-size: 1.3em;
     
+  }
+  li{
+    font-family: 'Ubuntu', sans-serif, bold;
+    font-size: 1.6em;
+    color: brown;
   }
 
   body {

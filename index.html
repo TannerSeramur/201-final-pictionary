@@ -31,8 +31,10 @@
                     <li></li>
                   </ul>
                     <label for="teamName"></label>
-                    <input id="add-team-input" type="text" name = "teamName" placeholder="Enter New Team Name ">
-                    <button id="add-team-button" class="fas fa-plus"></button>
+                    <div class="addTeam">
+                      <input id="add-team-input" type="text" name = "teamName" placeholder="Enter New Team Name ">
+                      <button id="add-team-button" class="fas fa-plus"></button>
+                    </div>
                     <button id="play-button">Play</button>
                 </div>
               </div>
@@ -42,8 +44,8 @@
                 <button class='button' onclick="myFunc('pop2')">Instruction</button>
               </div>  
               <div class="popup-container" id= "pop2" onclick="closePop('pop2')">
-                <div class="popup">
-                  <h2>Learn to play Pictionary</h2>
+                <div class="instructions">
+                  <h2>Learn To Play Pictionary</h2>
                   <p>Want to learn how to play one America's timeless family games? Well, friend, it looks like you have come to our site and that is gonna have to do.</p>
                   <p> If we were in the real world (wake UP), the drawer would receive a card with a word to draw, but here on the web, we will just ask everyone but the drawer to look away before we show the word. If not, the penalty will be left up for The Great Julias Ceaser to decide, and I wouldn't risk that, it's just not worth it.</p>
                   <p> After that, the drawer has a set time to illustrate the word and is not able to communicate to the guesser other than saying "yes" or "no". In the real-life version, you normally would also be racing against another team as you are guessing, but sharing a mouse/trackpad  & a screen doesn't seem like a fun time from our perspective, although it would be fun to watch others struggle...</p>
@@ -54,9 +56,34 @@
                 <div class="pop">
                   <button class='button' onclick="myFunc('pop3')">Scores</button>
                 </div>
-                <div class="popup-container" id= "pop3">
-                  <div class="popup">
-                    <!-- text goes here          --> 
+                <div class="popup-container" id= "pop3" onclick="closePop('pop3')">
+                  <div class="scoresPopup">
+                    <h2>High Scores: </h2>
+                    <div class=table>
+                      <table>
+                        <tr>
+                          <th>TEAM</th>
+                          <th>GAMES PLAYED</th>
+                          <th>SCORE</th>
+                        </tr>
+                        <tr>
+                          <td>Purple Cobras</td>
+                          <td>92</td>
+                          <td>89</td>
+                        </tr>
+                        <tr>
+                          <td>Bad Intentions</td>
+                          <td>101</td>
+                          <td>85</td>
+                        </tr>
+                        <tr>
+                          <td>Straight Cash Homie</td>
+                          <td>80</td>
+                          <td>60</td>
+                        </tr>
+                      </table>
+                    </div>
+                    
                   </div>
                 </div>
               </div>

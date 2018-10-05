@@ -143,6 +143,7 @@ function startGuess(event){
   var guessInput = addElement('input', '', guessForm);
   guessInput.id = 'userGuess';
   guessInput.name = 'userGuess';
+  guessInput.autocomplete = 'off';
   guessInput.placeholder = 'Enter your guess here';
   guessInput.autofocus = 'autofocus';
   guessForm.addEventListener('submit', submitGuess);
