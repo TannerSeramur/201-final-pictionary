@@ -116,7 +116,6 @@ function showWord(){
   startDrawBtn.id = 'drawBtn';
 
   startDrawBtn.addEventListener('click', doDrawPhase);
-
 }
 
 function roleSwitch(){
@@ -175,29 +174,10 @@ function getTeamsFromLocalStorage() {
     new Team(jsonTeam['teamName']);
   }
 }
+
 function addIncorrectGuesses(){
   var incorrectGuess = document.getElementById('guessList');
   var listHead = addElement('h3','Incorrect Guesses: ', incorrectGuess);
-}
-
-
-function playGame() {
-  // loop over the number of rounds in our game
-  for (let round = 1; round <= game.maxRounds; round++) {
-    // Do start round things here
-    startRound();
-    // each round, loop over the number of teams in our game
-    for (let currentTeam = 0; currentTeam < Game.teams.length; currentTeam++) {
-      // Do start turn things here
-      doTurn(Game.teams[currentTeam]);
-    }
-  }
-  // Game is done. Show results.
-  showEndOfGameResults();
-}
-
-function startRound() {
-
 }
 
 function showWin(){
@@ -211,7 +191,6 @@ function hideBar(){
   document.getElementById('myBar').classList.add('invisable');
 }
 
-
 // turn start here
 function doTurn(currentTeam) {
   // Accepts a team object as parameter
@@ -221,31 +200,6 @@ function doTurn(currentTeam) {
   startGuessing();
   showTurnResults();
 }
-
-function promptDrawer() {
-  // TODO: do the prompt
-}
-
-function startDraw() {
-  // TODO: run drawing code
-}
-
-function promptGuesser() {
-  // TODO: show the prompt
-}
-
-function startGuessing() {
-  console.log('hi');
-}
-
-function showTurnResults() {
-  // TODO: display end of turn results
-}
-
-function showEndOfGameResults() {
-  // TODO: display end of game results
-}
-
 
 function getRandomWord() {
   var randomWord = '';
