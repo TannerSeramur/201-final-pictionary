@@ -115,7 +115,6 @@ function showWord(){
   startDrawBtn.id = 'drawBtn';
 
   startDrawBtn.addEventListener('click', doDrawPhase);
-
 }
 
 function roleSwitch(){
@@ -174,10 +173,12 @@ function getTeamsFromLocalStorage() {
     new Team(jsonTeam['teamName']);
   }
 }
+
 function addIncorrectGuesses(){
   var incorrectGuess = document.getElementById('guessList');
   var listHead = addElement('h3','Incorrect Guesses: ', incorrectGuess);
 }
+
 
 function playGame() {
   // loop over the number of rounds in our game
@@ -208,7 +209,6 @@ function hideBar(){
   document.getElementById('myProgress').classList.add('invisable');
   document.getElementById('myBar').classList.add('invisable');
 }
-
 
 // turn start here
 function doTurn(currentTeam) {
