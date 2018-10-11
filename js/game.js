@@ -36,7 +36,6 @@ function timer() {
       width++;
       elem.style.width = width + '%';
     }
-
   }
 }
 
@@ -180,7 +179,6 @@ function addIncorrectGuesses(){
   var listHead = addElement('h3','Incorrect Guesses: ', incorrectGuess);
 }
 
-
 function playGame() {
   // loop over the number of rounds in our game
   for (let round = 1; round <= game.maxRounds; round++) {
@@ -221,31 +219,6 @@ function doTurn(currentTeam) {
   startGuessing();
   showTurnResults();
 }
-
-function promptDrawer() {
-  // TODO: do the prompt
-}
-
-function startDraw() {
-  // TODO: run drawing code
-}
-
-function promptGuesser() {
-  // TODO: show the prompt
-}
-
-function startGuessing() {
-  console.log('hi');
-}
-
-function showTurnResults() {
-  // TODO: display end of turn results
-}
-
-function showEndOfGameResults() {
-  // TODO: display end of game results
-}
-
 
 function getRandomWord() {
   var randomWord = '';
