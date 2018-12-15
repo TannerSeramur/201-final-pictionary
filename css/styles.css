@@ -61,19 +61,20 @@ body{
 
  /* modal styles here */
 .popup-container{
-  background-image: url('../image/google-quick-draw.jpg');
+  /* background-image: url('../image/google-quick-draw.jpg'); */
+  background-color: #2D5C81;
   position: absolute;
   top: 0;
   bottom: 0;
   right: 00;
   left: 0;
-  background-color:goldenrod;
+  /* background-color:goldenrod; */
   color:rebeccapurple;
   display: flex;
   justify-content: center;
   align-items: center;
   visibility: hidden;
-
+  background-color: #2D5C81;
 }
 
 .popup{
@@ -183,7 +184,8 @@ h2 {
   }
 
   body {
-    background-image: url('../image/Pen.jpg');
+    /* background-image: url('../image/Pen.jpg'); */
+    background-color: #2D5C81;
     height: 100vh;
     width: 100vw;
     background-position: center;

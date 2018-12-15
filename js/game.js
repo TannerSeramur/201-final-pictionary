@@ -115,6 +115,10 @@ function showWord(){
   startDrawBtn.id = 'drawBtn';
 
   startDrawBtn.addEventListener('click', doDrawPhase);
+
+  return secretWord;
+
+
 }
 
 function roleSwitch(){
@@ -202,8 +206,11 @@ function startRound() {
 function showWin(){
   document.getElementById('winPop').classList.add('isvisable');
 }
-function showLose(){
+function showLose(secretWord){
   document.getElementById('losePop').classList.add('isvisable');
+  // var el = document.getElementById('losePop');
+  var el = addElement('p', 'The right word was: ' + roundWord, giveUserWord);
+
 }
 function hideBar(){
   document.getElementById('myProgress').classList.add('invisable');
